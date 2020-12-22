@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">VBeeOn</string>
+    <string name="api_base_url">VBeeOn</string>
+</resources>
