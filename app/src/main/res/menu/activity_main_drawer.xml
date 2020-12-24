@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_homepage_new"
+            android:icon="@drawable/ic_home"
+            android:title="Trang chủ" />
+        <item
+            android:id="@+id/nav_device"
+            android:icon="@drawable/ic_menu_device"
+            android:title="Quản lý thiết bị" />
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/ic_menu_location"
+            android:title="Quản lý vị trí" />
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/ic_menu_shop"
+            android:title="Cửa hàng" />
+        <item
+            android:id="@+id/nav_intro"
+            android:icon="@drawable/ic_menu_intro"
+            android:title="VBEEON" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_menu_help"
+            android:title="Hướng dẫn sử dụng" />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_menu_account"
+            android:title="Tài khoản" />
+
+        <item
+            android:visible="false"
+            android:id="@+id/nav_log"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="DEBUG" />
+    </group>
+</menu>

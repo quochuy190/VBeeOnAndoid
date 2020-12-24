@@ -15,7 +15,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         tools:textColor="@color/colorPrimary"
-        android:textSize="@dimen/text_xlarge"
+        android:textSize="17sp"
         android:textStyle="bold"
         tools:text="title" />
 
