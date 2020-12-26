@@ -19,5 +19,14 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_main_v_bee">MainActivityVBee</string>
 
+    <string name="item_base_convert_digital">CƠ BẢN CHUYỂN ĐỔI SỐ</string>
+    <string name="item_smart_convert_digital">VBEEON - SỐ HÓA CHO CUỘC SÔNG THÔNG MINH</string>
+    <string name="item_mission_convert_digital">SỨ MỆNH CỦA VBEEON</string>
+
+    <string name="tab_base_c_digital">Cơ bản</string>
+    <string name="tab_citizen_c_digital">Cho người dân</string>
+    <string name="tab_enterprise_c_digital">Cho doanh nghiệp</string>
+    <string name="tab_government_c_digital">Cho cơ quan nhà nước</string>
+
 
 </resources>

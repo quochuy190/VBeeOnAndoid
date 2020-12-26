@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBgMain"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/toolbar_main"/>
+
+    <com.google.android.material.tabs.TabLayout
+        app:tabTextColor="@color/tab_layout_no_selecter"
+        style="@style/Base.Widget.Design.TabLayout"
+        android:id="@+id/tlConvertDigital"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"/>
+    <com.vn.vbeeon.presentation.widget.CustomViewPager
+        android:id="@+id/vpConvertDigital"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tlConvertDigital"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

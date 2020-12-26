@@ -22,6 +22,7 @@
                 android:background="@color/appBar"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
             <TextView
+                android:id="@+id/tvTitleMain"
                 android:background="@color/appBar"
                 android:gravity="center"
                 app:layout_constraintWidth_percent="0.7"

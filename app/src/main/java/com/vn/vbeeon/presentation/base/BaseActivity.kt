@@ -1,39 +1,35 @@
 package com.vn.vbeeon.presentation.base
 
 import android.os.Bundle
+import androidx.annotation.LayoutRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import com.vsm.ambientmode.utils.display.Toaster
 
 abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        replaceFragment(initFragment())
+        setContentView(provideLayoutId())
+        setupObservers()
+        setupView(savedInstanceState)
     }
-
-    fun replaceFragment(fragment: BaseFragment, addToBackStack: Boolean = false) {
-        val transaction = supportFragmentManager
-            .beginTransaction()
-            .replace(getIdContainer(), fragment)
-        if (addToBackStack) {
-            transaction.addToBackStack(fragment.javaClass.simpleName)
-        }
-
-        transaction.commit()
+    protected open fun setupObservers() {
     }
+    @LayoutRes
+    protected abstract fun provideLayoutId(): Int
 
-    fun addFragment(fragment: BaseFragment, addToBackStack: Boolean = false) {
-        val transaction = supportFragmentManager
-            .beginTransaction()
-            .add(getIdContainer(), fragment)
+    protected abstract fun setupView(savedInstanceState: Bundle?)
 
-        if (addToBackStack) {
-            transaction.addToBackStack(fragment.javaClass.simpleName)
-        }
+    fun showMessage(message: String) = Toaster.show(applicationContext, message)
 
-        transaction.commit()
+    fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))
+
+    open fun goBack() = onBackPressed()
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0)
+            supportFragmentManager.popBackStackImmediate()
+        else super.onBackPressed()
     }
-
-    abstract fun initFragment(): BaseFragment
-
-    abstract fun getIdContainer(): Int
 }

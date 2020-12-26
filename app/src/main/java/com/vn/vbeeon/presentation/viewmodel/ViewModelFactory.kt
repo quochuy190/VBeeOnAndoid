@@ -11,7 +11,8 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-class ViewModelFactory @Inject constructor(var creators: MutableMap<Class<out ViewModel>, Provider<ViewModel>>) : ViewModelProvider.Factory {
+class ViewModelFactory @Inject constructor(var creators: MutableMap<Class<out ViewModel>,
+        Provider<ViewModel>>) : ViewModelProvider.Factory {
     @NonNull
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         var creator = creators[modelClass]

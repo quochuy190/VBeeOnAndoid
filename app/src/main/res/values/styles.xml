@@ -5,6 +5,8 @@
         <item name="colorPrimary">@color/appBar</item>
         <item name="colorPrimaryDark">@color/appBar</item>
         <item name="colorAccent">@color/appBar</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
@@ -64,5 +66,16 @@
 
     <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="android:textSize">11sp</item>
+        <item name="tabIndicatorHeight">1dp</item>
+        <item name="tabPaddingStart">2dp</item>
+        <item name="tabPaddingEnd">2dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
+        <item name="tabSelectedTextColor">@color/white</item>
     </style>
 </resources>

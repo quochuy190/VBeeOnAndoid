@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorBgMain"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        app:layout_constraintDimensionRatio="1:0.653"
+        android:scaleType="fitXY"
+        android:src="@drawable/landmark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemBaseDigital"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintWidth_percent="0.9"
+            android:background="@drawable/bgr_item_digital"
+            android:padding="@dimen/dimen_10dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/img_logo_shadow"
+                android:id="@+id/imgItemDigitalOne"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <TextView
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="left"
+                android:textColor="@color/appBar"
+                android:text="@string/item_base_convert_digital"
+                style="@style/TextMainItem"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgItemDigitalOne"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemSmartDigital"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        app:layout_constraintTop_toBottomOf="@+id/itemBaseDigital"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintWidth_percent="0.9"
+        android:background="@drawable/bgr_item_digital"
+        android:padding="@dimen/dimen_10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/img_logo_shadow"
+            android:id="@+id/imgItemDigitalTwo"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+        <TextView
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:textColor="@color/appBar"
+            android:text="@string/item_smart_convert_digital"
+            style="@style/TextMainItem"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="left"
+            app:layout_constraintStart_toEndOf="@+id/imgItemDigitalTwo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemMissionDigital"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        app:layout_constraintTop_toBottomOf="@+id/itemSmartDigital"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintWidth_percent="0.9"
+        android:background="@drawable/bgr_item_digital"
+        android:padding="@dimen/dimen_10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/img_logo_shadow"
+            android:id="@+id/imgItemDigitalThree"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+        <TextView
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:textColor="@color/appBar"
+            android:text="@string/item_mission_convert_digital"
+            style="@style/TextMainItem"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgItemDigitalThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

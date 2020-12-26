@@ -2,11 +2,15 @@ package vn.neo.smsvietlott.common.utils
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.AssetManager
 import com.vn.vbeeon.R
 import com.vn.vbeeon.VBeeOnApplication
 import io.reactivex.Scheduler
 
 object AppUtils {
+    fun AssetManager.readFile(fileName: String) = open(fileName)
+        .bufferedReader()
+        .use { it.readText() }
 
     private lateinit var context: Context
 

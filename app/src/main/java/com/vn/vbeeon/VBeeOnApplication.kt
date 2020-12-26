@@ -42,5 +42,4 @@ class VBeeOnApplication : Application() {
             .bindContext(this)
             ?.build()!!
     }
-
 }
