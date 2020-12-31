@@ -21,6 +21,7 @@ import vn.neo.smsvietlott.common.utils.AppUtils.readFile
 
 @Suppress("DEPRECATION")
 class ListDocConverDigitalFragment : BaseFragment() {
+    lateinit var mViewModel: FragmentListWebHtmlViewModel
 
     override fun inject(appComponent: AppComponent) {
         appComponent.inject(this)
@@ -36,18 +37,19 @@ class ListDocConverDigitalFragment : BaseFragment() {
 
     override fun initView() {
 
-        val jsonString = context?.assets?.readFile("ChuyenDoiSo.json")
-        Log.d("TAG", "initView: "+jsonString)
-        var gson = Gson()
-        //var mMineUserEntity = gson?.fromJson(jsonString, ObjHtmlData::class.java)
-        val objectList = gson.fromJson(jsonString, Array<ObjHtmlData>::class.java).asList()
-        Log.d("TAG", "initView: "+objectList.size)
+//        val jsonString = context?.assets?.readFile("ChuyenDoiSo.json")
+//        Log.d("TAG", "initView: "+jsonString)
+//        var gson = Gson()
+//        //var mMineUserEntity = gson?.fromJson(jsonString, ObjHtmlData::class.java)
+//        val objectList = gson.fromJson(jsonString, Array<ObjHtmlData>::class.java).asList()
+//        Log.d("TAG", "initView: "+objectList.size)
 
     }
 
     override fun initViewModel() {
-//        mainViewModel = ViewModelProviders.of(activity as ConvertDigitalActivity, viewModelFactory).get(
-//            ConvertDigitalViewModel::class.java)
+        mViewModel = ViewModelProviders.of(activity as ConvertDigitalActivity, viewModelFactory).get(
+            FragmentListWebHtmlViewModel::class.java)
+        context?.let { mViewModel.getListHtml(it, "ChuyenDoiSo.json") }
     }
 
     override fun observable() {
