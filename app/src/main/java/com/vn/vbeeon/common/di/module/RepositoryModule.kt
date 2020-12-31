@@ -1,7 +1,9 @@
 package com.vn.vbeeon.common.di.module
 
 import com.vn.vbeeon.data.repository.UserRepository
+import com.vn.vbeeon.data.repository.WebHtmlRepository
 import com.vn.vbeeon.data.repository.impl.UserReposImpl
+import com.vn.vbeeon.data.repository.impl.WebHtmlReposImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -12,5 +14,10 @@ class RepositoryModule {
     @Singleton
     fun provideUserRepos(userReposImpl: UserReposImpl): UserRepository {
         return userReposImpl
+    }
+    @Provides
+    @Singleton
+    fun provideWebHtmlRepos(webHtmlReposImpl: WebHtmlReposImpl): WebHtmlRepository {
+        return webHtmlReposImpl
     }
 }

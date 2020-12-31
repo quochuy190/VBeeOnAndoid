@@ -17,7 +17,6 @@ import timber.log.Timber
 import javax.inject.Inject
 
 abstract class BaseFragment : Fragment() {
-
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 

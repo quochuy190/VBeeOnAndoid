@@ -14,24 +14,19 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
+        android:theme="@style/NavigationView"
+        android:background="@color/leftMenu"
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="@android:color/white"
+        app:itemTextAppearance="@style/NavigationDrawerStyle"
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-      >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer"
+        >
 
-            <include layout="@layout/nav_header_main" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/lst_menu_items"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-        </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

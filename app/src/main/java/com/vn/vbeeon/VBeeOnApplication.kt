@@ -40,5 +40,4 @@ class VBeeOnApplication : Application() {
     private fun initDagger() {
         appComponent = DaggerAppComponent.builder().bindContext(this)?.build()!!
     }
-
 }

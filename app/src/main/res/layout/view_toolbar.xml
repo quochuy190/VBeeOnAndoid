@@ -9,13 +9,13 @@
     tools:layout_height="?android:actionBarSize">
 
     <TextView
+        android:layout_gravity="center"
         android:id="@+id/tv_title_toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/white"
-        tools:textColor="@color/colorPrimary"
-        android:textSize="@dimen/text_xlarge"
+        android:textColor="@color/textAppBar"
+        android:textSize="17sp"
         android:textStyle="bold"
         tools:text="title" />
 
@@ -24,8 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/white"
-        tools:textColor="@color/colorPrimary"
+        tools:textColor="@color/textAppBar"
         android:visibility="gone"
         tools:text="subtitle"
         tools:visibility="visible" />

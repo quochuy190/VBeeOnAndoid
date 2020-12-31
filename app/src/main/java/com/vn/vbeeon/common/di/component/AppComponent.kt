@@ -5,22 +5,30 @@ import com.vn.vbeeon.common.di.module.LocalModule
 import com.vn.vbeeon.common.di.module.RemoteModule
 import com.vn.vbeeon.common.di.module.RepositoryModule
 import com.vn.vbeeon.common.di.module.ViewModelModule
+import com.vn.vbeeon.presentation.fragment.DemoFragment
+import com.vn.vbeeon.presentation.fragment.HomePageFragment
 import com.vn.vbeeon.presentation.fragment.MainFragment
+import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalDetailFragment
+import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalPageFragment
+import com.vn.vbeeon.presentation.fragment.convertDigital.ListDocConverDigitalFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = [
-       RemoteModule::class,
-    ViewModelModule::class,
-    RepositoryModule::class,
-    LocalModule::class
-    ]
+    modules = [RemoteModule::class,
+        ViewModelModule::class,
+        RepositoryModule::class,
+        LocalModule::class]
 )
 interface AppComponent {
     fun inject(mainFragment: MainFragment)
+    fun inject(demoFragment: DemoFragment)
+    fun inject(homePageFragment: HomePageFragment)
+    fun inject(fragment: ConvertDigitalPageFragment)
+    fun inject(fragment: ConvertDigitalDetailFragment)
+    fun inject(fragment: ListDocConverDigitalFragment)
 
     @Component.Builder
     interface Builder {
