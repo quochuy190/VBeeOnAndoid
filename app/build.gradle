@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'kotlin-kapt'
-
 kapt {
     generateStubs = true
 }
@@ -126,5 +125,7 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
+    implementation "com.jakewharton.rxbinding2:rxbinding:${rxBindingVersion}"
+    implementation "com.jakewharton.rxrelay2:rxrelay:$rootProject.rxBindingVersion"
+    kapt 'com.android.databinding:compiler:2.3.1'
 }

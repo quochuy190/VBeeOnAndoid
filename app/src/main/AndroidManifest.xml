@@ -27,6 +27,10 @@
         </activity>
         <activity android:name=".presentation.fragment.convertDigital.ConvertDigitalActivity"/>
 
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".presentation.activity.SphygmomanometerActivity"/>
+
     </application>
 
 </manifest>

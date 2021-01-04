@@ -12,6 +12,7 @@ import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalDetailFr
 import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalPageFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.ListDocConverDigitalFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.WebViewFragment
+import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -31,6 +32,7 @@ interface AppComponent {
     fun inject(fragment: ConvertDigitalDetailFragment)
     fun inject(fragment: ListDocConverDigitalFragment)
     fun inject(fragment: WebViewFragment)
+    fun inject(fragment: SphygHomeFragment)
 
     @Component.Builder
     interface Builder {
