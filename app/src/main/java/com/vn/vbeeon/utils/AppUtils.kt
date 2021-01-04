@@ -1,4 +1,4 @@
-package vn.neo.smsvietlott.common.utils
+package com.vn.vbeeon.utils
 
 import android.content.Context
 import android.content.pm.PackageManager

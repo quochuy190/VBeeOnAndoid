@@ -11,6 +11,7 @@ import com.vn.vbeeon.presentation.fragment.MainFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalDetailFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalPageFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.ListDocConverDigitalFragment
+import com.vn.vbeeon.presentation.fragment.convertDigital.WebViewFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -29,6 +30,7 @@ interface AppComponent {
     fun inject(fragment: ConvertDigitalPageFragment)
     fun inject(fragment: ConvertDigitalDetailFragment)
     fun inject(fragment: ListDocConverDigitalFragment)
+    fun inject(fragment: WebViewFragment)
 
     @Component.Builder
     interface Builder {

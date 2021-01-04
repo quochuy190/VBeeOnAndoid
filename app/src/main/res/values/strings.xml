@@ -28,5 +28,7 @@
     <string name="tab_enterprise_c_digital">Cho doanh nghiệp</string>
     <string name="tab_government_c_digital">Cho cơ quan nhà nước</string>
 
+    <string name="txt_source_web">Nội dung gốc: <u>https:dx.mic.gov.vn/</u></string>
+
 
 </resources>

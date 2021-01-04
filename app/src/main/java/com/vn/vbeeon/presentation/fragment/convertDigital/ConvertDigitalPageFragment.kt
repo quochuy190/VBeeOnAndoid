@@ -11,8 +11,9 @@ import com.vn.vbeeon.domain.model.ObjHtmlData
 import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
+import com.vn.vbeeon.utils.AppUtils.readFile
 import kotlinx.android.synthetic.main.fragment_convert_digital.*
-import vn.neo.smsvietlott.common.utils.AppUtils.readFile
+
 
 
 @Suppress("DEPRECATION")
@@ -35,12 +36,9 @@ class ConvertDigitalPageFragment : BaseFragment() {
 
     override fun initView() {
         val jsonString = context?.assets?.readFile("ChuyenDoiSo.json")
-        Log.d("TAG", "initView: "+jsonString)
         var gson = Gson()
         //var mMineUserEntity = gson?.fromJson(jsonString, ObjHtmlData::class.java)
         val objectList = gson.fromJson(jsonString, Array<ObjHtmlData>::class.java).asList()
-        Log.d("TAG", "initView: "+objectList.size)
-
         itemBaseDigital.setOnClickListener {
             context?.launchActivity<ConvertDigitalActivity>()
         }

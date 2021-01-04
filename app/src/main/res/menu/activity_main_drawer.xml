@@ -36,7 +36,7 @@
         <item
             android:visible="false"
             android:id="@+id/nav_log"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/abc_vector_test"
             android:title="DEBUG" />
     </group>
 </menu>

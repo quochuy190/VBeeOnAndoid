@@ -8,9 +8,10 @@ import com.vn.vbeeon.data.local.entity.UserEntity
 import com.vn.vbeeon.data.repository.UserRepository
 import com.vn.vbeeon.data.repository.WebHtmlRepository
 import com.vn.vbeeon.domain.model.ObjHtmlData
+import com.vn.vbeeon.utils.AppUtils.readFile
 import io.reactivex.Observable
 import io.reactivex.rxjava3.core.Single
-import vn.neo.smsvietlott.common.utils.AppUtils.readFile
+
 import javax.inject.Inject
 
 class WebHtmlReposImpl @Inject constructor(): WebHtmlRepository {

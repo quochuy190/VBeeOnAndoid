@@ -1,4 +1,4 @@
-package vn.neo.smsvietlott.common.utils
+package com.vn.vbeeon.utils
 
 import android.app.Application
 import io.reactivex.Observable
