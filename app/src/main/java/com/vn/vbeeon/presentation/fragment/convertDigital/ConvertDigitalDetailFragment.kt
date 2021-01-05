@@ -44,6 +44,7 @@ class ConvertDigitalDetailFragment : BaseFragment() {
             Timber.e("ib_toolbar_close.setOnSafeClickListener")
             activity?.onBackPressed()
         }
+        tv_toolbar_title.text = "Cẩm nang chuyển đổi số"
         initViewPager()
         val jsonString = context?.assets?.readFile("ChuyenDoiSo.json")
         var gson = Gson()

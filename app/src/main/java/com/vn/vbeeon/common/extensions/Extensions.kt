@@ -7,6 +7,8 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.Html
+import android.text.Spanned
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,7 @@ import com.jakewharton.rxbinding2.view.RxView
 import com.vn.vbeeon.R
 import com.vn.vbeeon.utils.SafeClickListener
 import java.util.concurrent.TimeUnit
+
 
 fun Activity.openFragment(
     fragment: Fragment,
@@ -126,4 +129,14 @@ fun Context.showAlertDialog(title: String?, msg: String?, positiveLabel: String?
     val alertDialog = dialog.create()
     alertDialog.show()
     return alertDialog
+}
+
+fun setTextHTML(html: String): Spanned
+{
+    val result: Spanned = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        Html.fromHtml(html)
+    }
+    return result
 }

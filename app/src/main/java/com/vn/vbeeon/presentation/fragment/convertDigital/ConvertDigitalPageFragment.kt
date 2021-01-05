@@ -1,19 +1,17 @@
 package com.vn.vbeeon.presentation.fragment.convertDigital
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.ViewModelProviders
 import com.google.gson.Gson
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.domain.model.ObjHtmlData
-import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import com.vn.vbeeon.utils.AppUtils.readFile
 import kotlinx.android.synthetic.main.fragment_convert_digital.*
-
+import kotlinx.android.synthetic.main.toolbar_main.*
 
 
 @Suppress("DEPRECATION")
@@ -40,7 +38,19 @@ class ConvertDigitalPageFragment : BaseFragment() {
         //var mMineUserEntity = gson?.fromJson(jsonString, ObjHtmlData::class.java)
         val objectList = gson.fromJson(jsonString, Array<ObjHtmlData>::class.java).asList()
         itemBaseDigital.setOnClickListener {
-            context?.launchActivity<ConvertDigitalActivity>()
+            startActivityOption(0)
+        }
+        itemSmartDigital.setOnClickListener {
+            startActivityOption(1)
+        }
+        itemMissionDigital.setOnClickListener {
+            startActivityOption(2)
+        }
+    }
+
+    private fun startActivityOption(option : Int) {
+        context?.launchActivity<ConvertDigitalActivity>{
+            putExtra("Option", option)
         }
     }
 

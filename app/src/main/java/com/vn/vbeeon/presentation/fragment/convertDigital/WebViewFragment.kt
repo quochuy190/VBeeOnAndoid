@@ -1,7 +1,9 @@
 package com.vn.vbeeon.presentation.fragment.convertDigital
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
@@ -50,8 +52,17 @@ class WebViewFragment : BaseFragment() {
             Timber.e("ib_toolbar_close.setOnSafeClickListener")
             activity?.onBackPressed()
         }
+        tv_toolbar_title.text = "Chuyển đổi số"
         wvConvertDigital.getSettings().setJavaScriptEnabled(true);
-        wvConvertDigital.loadData(content, "text/html; charset=utf-8", "UTF-8");
+        wvConvertDigital.setBackgroundColor(Color.TRANSPARENT);
+        if (content.equals("vbeeon.com")){
+            tvSource.visibility = View.GONE
+            wvConvertDigital.loadUrl("https://vbeeon.com/gioi-thieu")
+        }else{
+            content="<font color='white'>" + content + "</font>";
+            tvSource.visibility = View.VISIBLE
+            wvConvertDigital.loadData(content, "text/html; charset=utf-8", "UTF-8");
+        }
     }
 
     override fun initViewModel() {

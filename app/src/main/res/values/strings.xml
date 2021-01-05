@@ -30,5 +30,12 @@
 
     <string name="txt_source_web">Nội dung gốc: <u>https:dx.mic.gov.vn/</u></string>
 
+    <string name="txt_vbeeon_mission">VBEEON ĐƯỢC XÂY DỰNG BỞI MỘT NHÓM CÁC CÔNG TY CÔNG NGHỆ CAO CỦA VIỆT NAM, CHÚNG TÔI NGHIÊN CỨU VÀ SỬ DỤNG CÁC CÔNG NGHỆ HIỆN ĐẠI NHẤT KẾT NỘI MỌI VẬT LÊN INTERNET ĐỂ DUNG CẤP DỊCH VỤ SỐ VÀO MỌI NGÕ NGÁCH CỦA CUỘC SỐNG VỚI ƯỚC VỌNG MỘT VIỆT NAM SỐ HÓA</string>
+
+    <string name="txt_website"><u>www.vbeeon.com</u></string>
+    <string name="txt_user">Người dùng</string>
+    <string name="txt_guild">Hướng dẫn</string>
+    <string name="txt_send_data">Gửi dữ liệu</string>
+    <string name="txt_history">Lịch sử</string>
 
 </resources>

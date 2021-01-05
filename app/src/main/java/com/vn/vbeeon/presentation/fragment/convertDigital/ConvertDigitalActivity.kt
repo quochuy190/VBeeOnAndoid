@@ -8,6 +8,7 @@ import android.view.animation.RotateAnimation
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.presentation.base.BaseActivity
+import timber.log.Timber
 
 /**
  * Created by: Neo Company.
@@ -21,26 +22,13 @@ class ConvertDigitalActivity : BaseActivity() {
     override fun provideLayoutId() = R.layout.activity_convert_digital
 
     override fun setupView(savedInstanceState: Bundle?) {
-        openFragment(ConvertDigitalDetailFragment(), false)
-        checkActivity()
-
-    }
-    var handler: Handler? = null
-    fun checkActivity() {
-        handler = Handler()
-        handler!!.postDelayed(runnable, 0)
-    }
-
-    var runnable: Runnable = object : Runnable {
-        override fun run() {
-            val rotate = RotateAnimation(
-                0F, 360F, Animation.RELATIVE_TO_SELF,
-                0.5f, Animation.RELATIVE_TO_SELF, 0.5f
-            )
-            rotate.duration = 1000 * 60.toLong()
-            rotate.interpolator = LinearInterpolator()
-            //image.startAnimation(rotate)
-            handler!!.postDelayed(this, 1000 * 60.toLong())
+        val option  = intent.getIntExtra("Option", 0)
+        Timber.d("option $option")
+        when(option){
+            0 -> openFragment(ConvertDigitalDetailFragment(), false)
+            1 -> openFragment(DemoVBeeOnMission(), false)
+            2 -> openFragment(DemoVBeeOnMission(), false)
         }
+
     }
 }

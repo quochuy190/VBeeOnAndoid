@@ -2,17 +2,17 @@ package com.vn.vbeeon.presentation.fragment.sphygmomanometer
 
 import android.os.Bundle
 import android.os.Handler
+import android.text.Html
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
-import com.vn.vbeeon.presentation.activity.MainActivity
+import com.vn.vbeeon.common.extensions.setTextHTML
 import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
-import com.vn.vbeeon.presentation.adapter.MainViewPagerAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
-import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_sphyg_home.*
 
 
@@ -36,6 +36,12 @@ class SphygHomeFragment : BaseFragment() {
 
     override fun initView() {
         checkActivity()
+        val sysTitle = "SYS<font color='#3497FD'><br>mmHg</font>"
+        tv_sys_title.text  = setTextHTML(sysTitle)
+        val diaTitle = "DIA<font color='#3497FD'><br>mmHg</font>"
+        tv_dia_title.text  = setTextHTML(diaTitle)
+        val pulseTitle = "PULSE/<font color='#3497FD'>min</font>"
+        tv_pulse_title.text  = setTextHTML(pulseTitle)
     }
 
     override fun initViewModel() {

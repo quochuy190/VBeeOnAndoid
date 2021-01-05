@@ -1,47 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBgMain"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <include layout="@layout/toolbar_main"/>
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_main" />
 
     <ImageView
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintDimensionRatio="1:1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:src="@drawable/bg_clock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!--textview Value-->
+    <TextView
+        android:id="@+id/tv_dia"
+        style="@style/TextValueSphyg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="90"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_sys"
+        style="@style/TextValueSphyg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="127"
+        app:layout_constraintBottom_toTopOf="@+id/tv_dia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gl_top" />
+
+    <TextView
+        android:id="@+id/tv_pulse"
+        style="@style/TextValueSphyg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00"
+        app:layout_constraintBottom_toBottomOf="@+id/gl_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dia" />
+
+    <!--text view title-->
+
+    <TextView
+        android:id="@+id/tv_dia_title"
+        style="@style/TextTitleSphyg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYS \nmmHg"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dia"
+        app:layout_constraintEnd_toEndOf="@+id/gl_start_title"
+        app:layout_constraintTop_toTopOf="@id/tv_dia" />
+
+    <TextView
+        android:id="@+id/tv_sys_title"
+        style="@style/TextTitleSphyg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYS \nmmHg"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_sys"
+        app:layout_constraintEnd_toEndOf="@+id/gl_start_title"
+        app:layout_constraintTop_toTopOf="@id/tv_sys" />
+
+    <TextView
+        android:id="@+id/tv_pulse_title"
+        style="@style/TextTitleSphyg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYS/mmHg"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_pulse"
+        app:layout_constraintEnd_toEndOf="@+id/gl_start_title" />
+
+    <ImageView
         android:layout_width="0dp"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp"
+        android:padding="@dimen/dimen_1dp"
+        android:src="@drawable/ic_heart"
+        app:layout_constraintBottom_toTopOf="@+id/tv_pulse_title"
+        app:layout_constraintEnd_toEndOf="@+id/tv_pulse_title"
+        app:layout_constraintStart_toStartOf="@id/tv_pulse_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_pulse"
+        app:tint="@color/red" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.42" />
+
+<!--    image view tablayout-->
+    <ImageView
+        android:id="@+id/imgUserHomeSphyg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_multil_user"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toStartOf="@+id/imgGuildHomeSphyg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        app:layout_constraintWidth_percent="0.24" />
+
+    <ImageView
+        android:id="@+id/imgGuildHomeSphyg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_ihelp_outline"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toStartOf="@+id/imgSendDataHomeSphyg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgUserHomeSphyg"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        app:layout_constraintWidth_percent="0.24"
+        app:tint="@color/textAppBar" />
+
+    <ImageView
+        android:id="@+id/imgSendDataHomeSphyg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_ipaperplane_outline"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toStartOf="@+id/imgHistoryHomeSphyg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgGuildHomeSphyg"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        app:layout_constraintWidth_percent="0.24"
+        app:tint="@color/textAppBar" />
+
+    <ImageView
+        android:id="@+id/imgHistoryHomeSphyg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_history_outline"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgSendDataHomeSphyg"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        app:layout_constraintWidth_percent="0.24"
+        app:tint="@color/textAppBar" />
+
+<!--    text view tablayout-->
+    <TextView
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_user"
+        app:layout_constraintEnd_toEndOf="@+id/imgUserHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgUserHomeSphyg"
+        app:layout_constraintTop_toBottomOf="@+id/imgUserHomeSphyg" />
+
+    <TextView
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_guild"
+        app:layout_constraintEnd_toEndOf="@+id/imgGuildHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgGuildHomeSphyg"
+        app:layout_constraintTop_toBottomOf="@+id/imgGuildHomeSphyg" />
+
+    <TextView
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_send_data"
+        app:layout_constraintEnd_toEndOf="@+id/imgSendDataHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgSendDataHomeSphyg"
+        app:layout_constraintTop_toBottomOf="@+id/imgSendDataHomeSphyg" />
+
+    <TextView
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_history"
+        app:layout_constraintEnd_toEndOf="@+id/imgHistoryHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgHistoryHomeSphyg"
+        app:layout_constraintTop_toBottomOf="@+id/imgHistoryHomeSphyg" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:id="@+id/viewTimeClock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="0dp"
-        android:layout_height="0dp">
+        app:layout_constraintWidth_percent="0.9">
 
         <TextView
-            android:text="09:00"
-            style="@style/TextMainItem"
-            android:textColor="@color/tvTimeClock"
-            android:background="@drawable/bgr_tv_time_clock"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.22"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextTimeSphyg"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp"
+            android:background="@drawable/bgr_tv_time_clock"
+            android:text="09:00"
+            android:textColor="@color/tvTimeClock"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

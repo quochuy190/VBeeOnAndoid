@@ -13,6 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.vn.vbeeon.R
+import com.vn.vbeeon.common.extensions.launchActivity
+import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_home), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        imgAdd.setOnSafeClickListener {
+            launchActivity<SphygmomanometerActivity>()
+        }
     }
 
 
