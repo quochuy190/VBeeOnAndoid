@@ -8,7 +8,7 @@ import android.view.animation.RotateAnimation
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.presentation.base.BaseActivity
-import timber.log.Timber
+import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 /**
  * Created by: Neo Company.
@@ -22,13 +22,17 @@ class ConvertDigitalActivity : BaseActivity() {
     override fun provideLayoutId() = R.layout.activity_convert_digital
 
     override fun setupView(savedInstanceState: Bundle?) {
-        val option  = intent.getIntExtra("Option", 0)
-        Timber.d("option $option")
-        when(option){
-            0 -> openFragment(ConvertDigitalDetailFragment(), false)
-            1 -> openFragment(DemoVBeeOnMission(), false)
-            2 -> openFragment(DemoVBeeOnMission(), false)
+        val option = intent.getIntExtra(ConstantCommon.KEY_SEND_OPTION_CD, 0)
+        when (option){
+            ConstantCommon.KEY_SEND_CONVERT_DIGITAL_1 ->
+                openFragment(ConvertDigitalDetailFragment(), false)
+            ConstantCommon.KEY_SEND_CONVERT_DIGITAL_2 ->
+                openFragment(DemoVBeeOnMission(), false)
+            ConstantCommon.KEY_SEND_CONVERT_DIGITAL_3 ->
+                openFragment(DemoVBeeOnMission(), false)
+
         }
+       // openFragment(ConvertDigitalDetailFragment(), false)
 
     }
 }
