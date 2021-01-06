@@ -3,6 +3,7 @@ package com.vn.vbeeon.domain.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.vn.vbeeon.data.local.entity.DeviceEntity
 
 /**
  * Created by: Neo Company.
@@ -19,3 +20,15 @@ data class Device(
     var categoryName: String
 
 )
+
+fun convertFromEntityList(deviceEntity: List<DeviceEntity>):List<Device>{
+    var listDevice : MutableList<Device> = mutableListOf()
+    deviceEntity.forEach {
+        listDevice.add(Device(it.id, it.name, it.intSource, it.categoryID, it.categoryName))
+    }
+    return listDevice
+}
+fun convertToEntity(device: Device) : DeviceEntity{
+    return DeviceEntity(device.id, device.name, device.intSource, device.categoryID, device.categoryName)
+
+}
