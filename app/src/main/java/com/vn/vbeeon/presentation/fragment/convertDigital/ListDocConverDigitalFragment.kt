@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.openFragment
+import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.FragmentListWebHtmlViewModel
 import com.vsm.ambientmode.ui.timer.HtmlAdapter

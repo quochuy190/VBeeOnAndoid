@@ -2,10 +2,7 @@ package com.vn.vbeeon.common.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.vn.vbeeon.common.util.ViewModelKey
-import com.vn.vbeeon.presentation.viewmodel.FragmentListWebHtmlViewModel
-import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygmomanometerViewModel
-import com.vn.vbeeon.presentation.viewmodel.MainViewModel
-import com.vn.vbeeon.presentation.viewmodel.ViewModelFactory
+import com.vn.vbeeon.presentation.viewmodel.*
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -28,6 +25,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SphygmomanometerViewModel::class)
     abstract fun bindSphygViewModel(listWebViewModel: SphygmomanometerViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DeviceViewModel::class)
+    abstract fun bindDeviceViewModel(deviceViewModel: DeviceViewModel): ViewModel
 
     @Binds
     @Singleton

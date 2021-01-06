@@ -8,9 +8,7 @@ import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
-import com.vn.vbeeon.presentation.adapter.MainViewPagerAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
-import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalActivity
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_home_page.*
 

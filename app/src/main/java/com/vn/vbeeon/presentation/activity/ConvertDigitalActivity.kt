@@ -1,13 +1,11 @@
-package com.vn.vbeeon.presentation.fragment.convertDigital
+package com.vn.vbeeon.presentation.activity
 
 import android.os.Bundle
-import android.os.Handler
-import android.view.animation.Animation
-import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.presentation.base.BaseActivity
+import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalDetailFragment
+import com.vn.vbeeon.presentation.fragment.convertDigital.FragmentVBeeOnMission
 import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 /**
@@ -19,7 +17,7 @@ import vn.neo.smsvietlott.common.di.util.ConstantCommon
  */
 class ConvertDigitalActivity : BaseActivity() {
 
-    override fun provideLayoutId() = R.layout.activity_convert_digital
+    override fun provideLayoutId() = R.layout.activity_frame_layout
 
     override fun setupView(savedInstanceState: Bundle?) {
         val option = intent.getIntExtra(ConstantCommon.KEY_SEND_OPTION_CD, 0)
@@ -27,9 +25,9 @@ class ConvertDigitalActivity : BaseActivity() {
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_1 ->
                 openFragment(ConvertDigitalDetailFragment(), false)
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_2 ->
-                openFragment(DemoVBeeOnMission(), false)
+                openFragment(FragmentVBeeOnMission(), false)
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_3 ->
-                openFragment(DemoVBeeOnMission(), false)
+                openFragment(FragmentVBeeOnMission(), false)
 
         }
        // openFragment(ConvertDigitalDetailFragment(), false)

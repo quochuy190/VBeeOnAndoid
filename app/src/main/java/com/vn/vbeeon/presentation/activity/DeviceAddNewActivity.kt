@@ -4,7 +4,10 @@ import android.os.Bundle
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.presentation.base.BaseActivity
-import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
+import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalDetailFragment
+import com.vn.vbeeon.presentation.fragment.convertDigital.FragmentVBeeOnMission
+import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
+import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 /**
  * Created by: Neo Company.
@@ -13,11 +16,12 @@ import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
  * Time: 23:38
  * Version: 1.0
  */
-class SphygmomanometerActivity : BaseActivity() {
+class DeviceAddNewActivity : BaseActivity() {
 
     override fun provideLayoutId() = R.layout.activity_frame_layout
 
     override fun setupView(savedInstanceState: Bundle?) {
-        openFragment(SphygHomeFragment(), false)
+        openFragment(DeviceListNewFragment(), false)
+
     }
 }
