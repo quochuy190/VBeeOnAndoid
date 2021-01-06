@@ -42,4 +42,9 @@
     <string name="txt_send_data">Gửi dữ liệu</string>
     <string name="txt_history">Lịch sử</string>
 
+    <string name="device_name_sphyg">MÁY ĐO HUYẾT APP</string>
+    <string name="device_name_obd">OBD</string>
+    <string name="category_name_sphyg">Thiết bị đo</string>
+    <string name="category_name_obd">Thiết bị trong xe hơi</string>
+
 </resources>

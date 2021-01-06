@@ -9,6 +9,7 @@ import com.vn.vbeeon.presentation.fragment.DemoFragment
 import com.vn.vbeeon.presentation.fragment.HomePageFragment
 import com.vn.vbeeon.presentation.fragment.MainFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.*
+import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
 import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
 import dagger.BindsInstance
 import dagger.Component
@@ -30,7 +31,8 @@ interface AppComponent {
     fun inject(fragment: ListDocConverDigitalFragment)
     fun inject(fragment: WebViewFragment)
     fun inject(fragment: SphygHomeFragment)
-    fun inject(fragment: DemoVBeeOnMission)
+    fun inject(fragment: FragmentVBeeOnMission)
+    fun inject(fragment: DeviceListNewFragment)
 
     @Component.Builder
     interface Builder {

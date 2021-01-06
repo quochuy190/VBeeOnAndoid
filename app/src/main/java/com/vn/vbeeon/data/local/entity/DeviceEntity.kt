@@ -20,7 +20,9 @@ data class DeviceEntity(
     var name: String?,
     @ColumnInfo(name = "int_source")
     var intSource: Int,
-    @ColumnInfo(name = "category")
-    var category: Int//1: thiết bị đo, 2: thiết bị trong xe hơi
+    @ColumnInfo(name = "category_id")
+    var categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
+    @ColumnInfo(name = "category_name")
+    var categoryName: String
 
 )

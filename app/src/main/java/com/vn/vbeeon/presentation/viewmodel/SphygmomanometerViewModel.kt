@@ -1,4 +1,4 @@
-package com.vn.vbeeon.presentation.fragment.sphygmomanometer
+package com.vn.vbeeon.presentation.viewmodel
 
 import com.vn.vbeeon.presentation.base.BaseViewModel
 import timber.log.Timber

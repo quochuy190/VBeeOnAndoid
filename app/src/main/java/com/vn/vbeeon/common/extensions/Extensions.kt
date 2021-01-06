@@ -26,7 +26,7 @@ fun Activity.openFragment(
 ) {
     this as AppCompatActivity
     supportFragmentManager.beginTransaction().apply {
-        add(R.id.fragmentConvertDigital, fragment)
+        add(R.id.frameLayout, fragment)
         if (addToBackStack) addToBackStack(fragment::class.java.simpleName)
         commit()
     }

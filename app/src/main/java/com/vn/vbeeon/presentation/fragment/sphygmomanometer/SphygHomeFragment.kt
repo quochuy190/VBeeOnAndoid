@@ -2,17 +2,16 @@ package com.vn.vbeeon.presentation.fragment.sphygmomanometer
 
 import android.os.Bundle
 import android.os.Handler
-import android.text.Html
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.setTextHTML
 import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
+import com.vn.vbeeon.presentation.viewmodel.SphygmomanometerViewModel
 import kotlinx.android.synthetic.main.fragment_sphyg_home.*
 
 
