@@ -12,6 +12,7 @@ import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import com.vn.vbeeon.utils.AppUtils.readFile
 import kotlinx.android.synthetic.main.fragment_convert_digital.*
 import kotlinx.android.synthetic.main.toolbar_main.*
+import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 
 @Suppress("DEPRECATION")
@@ -33,10 +34,6 @@ class ConvertDigitalPageFragment : BaseFragment() {
     }
 
     override fun initView() {
-        val jsonString = context?.assets?.readFile("ChuyenDoiSo.json")
-        var gson = Gson()
-        //var mMineUserEntity = gson?.fromJson(jsonString, ObjHtmlData::class.java)
-        val objectList = gson.fromJson(jsonString, Array<ObjHtmlData>::class.java).asList()
         itemBaseDigital.setOnClickListener {
             startActivityOption(0)
         }
@@ -50,7 +47,7 @@ class ConvertDigitalPageFragment : BaseFragment() {
 
     private fun startActivityOption(option : Int) {
         context?.launchActivity<ConvertDigitalActivity>{
-            putExtra("Option", option)
+            putExtra(ConstantCommon.KEY_SEND_OPTION_CD, option)
         }
     }
 

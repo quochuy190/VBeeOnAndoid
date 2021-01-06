@@ -30,6 +30,10 @@
 
     <string name="txt_source_web">Nội dung gốc: <u>https:dx.mic.gov.vn/</u></string>
 
+    <string name="message_permission">Hãy cấp quyền truy cập để các chức năng của ứng dụng có thể hoạt động bình thường.</string>
+    <string name="title_permission">Quyền truy cập</string>
+    <string name="message_error_permission">Một số quyền chưa được cấp. Hãy vào cài đặt và cấp quyền để ứng dụng có thể hoạt động bình thường.</string>
+    <string name="exit">Thoát</string>
     <string name="txt_vbeeon_mission">VBEEON ĐƯỢC XÂY DỰNG BỞI MỘT NHÓM CÁC CÔNG TY CÔNG NGHỆ CAO CỦA VIỆT NAM, CHÚNG TÔI NGHIÊN CỨU VÀ SỬ DỤNG CÁC CÔNG NGHỆ HIỆN ĐẠI NHẤT KẾT NỘI MỌI VẬT LÊN INTERNET ĐỂ DUNG CẤP DỊCH VỤ SỐ VÀO MỌI NGÕ NGÁCH CỦA CUỘC SỐNG VỚI ƯỚC VỌNG MỘT VIỆT NAM SỐ HÓA</string>
 
     <string name="txt_website"><u>www.vbeeon.com</u></string>

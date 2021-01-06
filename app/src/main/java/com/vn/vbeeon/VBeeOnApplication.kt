@@ -2,6 +2,7 @@ package com.vn.vbeeon
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
+import com.google.gson.Gson
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.di.component.DaggerAppComponent
 import timber.log.Timber
@@ -25,9 +26,12 @@ class VBeeOnApplication : Application() {
         super.attachBaseContext(base)
         MultiDex.install(this)
     }
+    var gSon: Gson? = null
+
 
     override fun onCreate() {
         super.onCreate()
+        gSon = Gson()
         instance = this
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
@@ -40,4 +44,5 @@ class VBeeOnApplication : Application() {
     private fun initDagger() {
         appComponent = DaggerAppComponent.builder().bindContext(this)?.build()!!
     }
+
 }

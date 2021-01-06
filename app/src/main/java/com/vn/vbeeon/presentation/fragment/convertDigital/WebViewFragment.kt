@@ -9,7 +9,7 @@ import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.base.BaseFragment
-import com.vsm.ambientmode.ui.timer.HtmlAdapter
+import com.vn.vbeeon.presentation.viewmodel.FragmentListWebHtmlViewModel
 import kotlinx.android.synthetic.main.fragment_webv.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 import timber.log.Timber
