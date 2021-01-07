@@ -5,5 +5,6 @@ import io.reactivex.Observable
 import io.reactivex.rxjava3.core.Single
 
 interface UserRepository {
-    fun createUser(user : UserEntity) : Single<Boolean>
+  //  fun createUser(user : UserEntity) : Single<Boolean>
+    fun createUserTest(user : UserEntity) : Boolean
 }

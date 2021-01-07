@@ -46,13 +46,13 @@ class HomePageFragment : BaseFragment() {
     }
 
     override fun observable() {
-        mainViewModel.devicesRes.observe(this, Observer {
-            if (it.size>0){
-                Timber.d("size ${it.size}")
-            }else{
-                Timber.d("size 0")
-            }
-        })
+//        mainViewModel.devicesRes.observe(this, Observer {
+//            if (it.size>0){
+//                Timber.d("size ${it.size}")
+//            }else{
+//                Timber.d("size 0")
+//            }
+//        })
     }
 
 

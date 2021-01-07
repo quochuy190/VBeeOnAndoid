@@ -1,7 +1,8 @@
 package com.vn.vbeeon.common.di.module
 
+import android.app.Application
+import android.content.Context
 import androidx.room.Room
-import com.vn.vbeeon.VBeeOnApplication
 import com.vn.vbeeon.data.local.VBeeDatabase
 import com.vn.vbeeon.data.local.dao.DeviceDao
 import com.vn.vbeeon.data.local.dao.UserDao
@@ -19,12 +20,13 @@ import javax.inject.Singleton
 
 @Module
 class LocalModule {
+
     @Provides
     @Singleton
-    internal fun provideDatabase(application: VBeeOnApplication): VBeeDatabase {
-        return Room.databaseBuilder(
-            application, VBeeDatabase::class.java, "VBeeOn.db")
-            .allowMainThreadQueries().build()
+    internal fun provideDatabase(application: Application): VBeeDatabase {
+        return Room.databaseBuilder(application, VBeeDatabase::class.java, "VBeeOn.db")
+            .allowMainThreadQueries()
+            .build()
     }
 
     @Provides

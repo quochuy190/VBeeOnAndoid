@@ -10,8 +10,13 @@ import javax.inject.Inject
 class UserReposImpl @Inject constructor(): UserRepository {
     @Inject
     lateinit var userDao: UserDao
-    override fun createUser(user: UserEntity): Single<Boolean> {
-        return userDao.insertUserObj(user)
+//    override fun createUser(user: UserEntity): Single<Boolean> {
+//        return userDao.insertUserObj(user)
+//    }
+
+    override fun createUserTest(user: UserEntity): Boolean {
+        userDao.insertUserObj(user)
+        return true
     }
 
 

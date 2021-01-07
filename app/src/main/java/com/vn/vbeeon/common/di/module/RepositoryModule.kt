@@ -3,7 +3,7 @@ package com.vn.vbeeon.common.di.module
 import com.vn.vbeeon.data.repository.DeviceRepository
 import com.vn.vbeeon.data.repository.UserRepository
 import com.vn.vbeeon.data.repository.WebHtmlRepository
-import com.vn.vbeeon.data.repository.impl.DeviceReposImpl
+import com.vn.vbeeon.data.repository.impl.DevicesReposImpl
 import com.vn.vbeeon.data.repository.impl.UserReposImpl
 import com.vn.vbeeon.data.repository.impl.WebHtmlReposImpl
 import dagger.Module
@@ -25,7 +25,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideDeviceRepos(deviceReposImpl: DeviceReposImpl): DeviceRepository {
+    fun provideDeviceRepos(deviceReposImpl: DevicesReposImpl): DeviceRepository {
         return deviceReposImpl
     }
 }
