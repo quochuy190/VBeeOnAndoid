@@ -27,9 +27,9 @@ class ConvertDigitalActivity : BaseActivity() {
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_1 ->
                 openFragment(ConvertDigitalDetailFragment(), false)
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_2 ->
-                openFragment(DemoVBeeOnMission(), false)
+                openFragment(FragmentVBeeOnMission(), false)
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_3 ->
-                openFragment(DemoVBeeOnMission(), false)
+                openFragment(FragmentVBeeOnMission(), false)
 
         }
        // openFragment(ConvertDigitalDetailFragment(), false)

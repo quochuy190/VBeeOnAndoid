@@ -23,7 +23,7 @@ class DevicesReposImpl @Inject constructor(): DeviceRepository {
             Device(
                 0,
                 VBeeOnApplication.instance.getString(R.string.device_name_sphyg),
-                R.drawable.ic_source,
+                R.drawable.img_device_sphyg,
                 0,
                 VBeeOnApplication.instance.getString(R.string.category_name_sphyg)
             )
@@ -32,7 +32,7 @@ class DevicesReposImpl @Inject constructor(): DeviceRepository {
             Device(
                 1,
                 VBeeOnApplication.instance.getString(R.string.device_name_obd),
-                R.drawable.ic_source,
+                R.drawable.img_device_obd,
                 1,
                 VBeeOnApplication.instance.getString(R.string.category_name_obd)
             )

@@ -1,10 +1,11 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBgMain"
+    android:layout_height="match_parent">
     <LinearLayout
-        android:background="@color/colorBgMain"
+        android:id="@+id/viewEmtryDevice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -73,17 +74,31 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:background="@color/colorBgMain">
-            <TextView
-                android:textColorLink="#3497FD"
-                android:textSize="12dp"
-                android:fontFamily="@font/roboto_regular"
-                android:id="@+id/txt_link"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#3497FD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mua thiết bị tại www.vbeeon.com"/>
+
         </LinearLayout>
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="@dimen/dimen_10dp"
+        android:id="@+id/rvListDevice"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_link"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <TextView
+        android:padding="@dimen/dimen_5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColorLink="#3497FD"
+        android:textSize="@dimen/sp_14"
+        android:fontFamily="@font/roboto_regular"
+        android:id="@+id/txt_link"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/bgr_button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_buy_device"/>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

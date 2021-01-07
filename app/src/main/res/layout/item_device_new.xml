@@ -4,32 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="data"
             type="com.vn.vbeeon.domain.model.Device" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:background="@drawable/bgr_device"
+        android:padding="@dimen/dimen_10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            app:setDeviceSource="@{data}"
+            android:id="@+id/imgDeviceNew"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1:1.2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+
         <TextView
-            android:id="@+id/tvCategoryDevice"
-            android:layout_width="match_parent"
+            android:textColor="@color/txt_value_sphyg"
+            app:layout_constraintEnd_toStartOf="@+id/imgDeviceNew"
+            android:id="@+id/tvDeviceCategoryNew"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
             android:duplicateParentState="true"
             android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="2"
+            android:gravity="left"
             android:text="@{data.categoryName}"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintStart_toEndOf="@+id/icCategoryDevice"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Gio va Thoi tiet" />
+
+        <ImageView
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:id="@+id/icCategoryDevice"
+            android:src="@drawable/ic_category_device"
+            app:layout_constraintWidth_percent="0.08"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:tint="@color/textAppBar" />
+
+        <TextView
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/imgDeviceNew"
+            android:id="@+id/tvDeviceNameNew"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:duplicateParentState="true"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:text="@{data.name}"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintStart_toEndOf="@+id/icCategoryDevice"
+            app:layout_constraintTop_toBottomOf="@+id/tvDeviceCategoryNew"
+            tools:text="Gio va Thoi tiet" />
+
+        <TextView
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toStartOf="@+id/imgDeviceNew"
+            android:id="@+id/tvDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:duplicateParentState="true"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintStart_toEndOf="@+id/icCategoryDevice"
+            app:layout_constraintTop_toBottomOf="@+id/tvDeviceNameNew"
+            tools:text="@string/tv_device_detail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

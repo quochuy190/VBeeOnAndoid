@@ -16,6 +16,7 @@ import com.vn.vbeeon.presentation.viewmodel.DeviceViewModel
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import com.vsm.ambientmode.ui.timer.DeviceAddNewAdapter
 import com.vsm.ambientmode.ui.timer.HtmlAdapter
+import kotlinx.android.synthetic.main.fragment_add_new_device.*
 import kotlinx.android.synthetic.main.fragment_list_doc_convert_digital.*
 
 
@@ -41,7 +42,7 @@ class DeviceListNewFragment : BaseFragment() {
         adapterDevice = DeviceAddNewAdapter() { position, item ->
             //(context as ConvertDigitalActivity).openFragment(WebViewFragment.newInstance(item.content), true)
         }
-        rvListHtml.apply { adapter = adapterDevice }
+        rvDeviceNew.apply { adapter = adapterDevice }
     }
 
     override fun initViewModel() {

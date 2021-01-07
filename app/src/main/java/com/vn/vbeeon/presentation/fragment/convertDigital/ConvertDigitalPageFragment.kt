@@ -8,14 +8,11 @@ import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_convert_digital.*
-import kotlinx.android.synthetic.main.toolbar_main.*
-import vn.neo.smsvietlott.common.di.util.ConstantCommon
 import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 
 @Suppress("DEPRECATION")
 class ConvertDigitalPageFragment : BaseFragment() {
-
     lateinit var mainViewModel: MainViewModel
 
     override fun inject(appComponent: AppComponent) {
@@ -57,8 +54,4 @@ class ConvertDigitalPageFragment : BaseFragment() {
     override fun observable() {
 
     }
-
-
-
-
 }

@@ -17,8 +17,7 @@ data class Device(
     var name: String?,
     var intSource: Int,
     var categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
-    var categoryName: String
-
+    var categoryName: String,
 )
 
 fun convertFromEntityList(deviceEntity: List<DeviceEntity>):List<Device>{

@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         imgAdd.setOnSafeClickListener {
-            launchActivity<SphygmomanometerActivity>()
+            launchActivity<DeviceAddNewActivity>()
         }
     }
 
@@ -47,5 +47,6 @@ class MainActivity : AppCompatActivity() {
     }
     fun setTitleMain(title: String){
         tvTitleMain.text = title
+
     }
 }

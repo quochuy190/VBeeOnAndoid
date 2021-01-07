@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.vn.vbeeon.domain.model.Device" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:background="@drawable/bgr_device"
+        android:padding="@dimen/dimen_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgDevice"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="1.2:2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+
+        <TextView
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/imgDevice"
+            android:id="@+id/tvDeviceName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:duplicateParentState="true"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:text="@{data.name}"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toStartOf="@+id/imgDeleteDevice"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Gio va Thoi tiet" />
+
+        <TextView
+            android:textColor="@color/txt_value_sphyg"
+            app:layout_constraintStart_toEndOf="@+id/imgDeviceStatus"
+            android:id="@+id/tvDeviceStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:duplicateParentState="true"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:text="@{data.name}"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toStartOf="@+id/imgDeleteDevice"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Mất kết nối" />
+        <ImageView
+            android:id="@+id/imgDeviceStatus"
+            android:src="@drawable/bgr_dot_disconnect"
+            app:layout_constraintTop_toTopOf="@+id/tvDeviceStatus"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDeviceStatus"
+            app:layout_constraintStart_toStartOf="@+id/tvDeviceName"
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            />
+        <ImageView
+            android:id="@+id/imgDeleteDevice"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintWidth_percent="0.08"
+            app:layout_constraintTop_toTopOf="@+id/tvDeviceName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:tint="@color/textAppBar" />
+
+        <ImageView
+            android:id="@+id/imgReloadDevice"
+            android:src="@drawable/ic_reload"
+            app:layout_constraintWidth_percent="0.08"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:tint="@color/textAppBar" />
+        <TextView
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/imgDevice"
+            android:id="@+id/tvConnectBT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:duplicateParentState="true"
+            android:gravity="left"
+            android:text="@{data.name}"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toStartOf="@+id/imgDeleteDevice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Gio va Thoi tiet" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
