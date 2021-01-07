@@ -11,23 +11,23 @@ import io.reactivex.rxjava3.core.Single
  * Time: 22:25
  * Version: 1.0
  */
-@Dao
-interface DeviceDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertListDevices(users : List<DeviceEntity>): LongArray
+@Dao interface DeviceDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertDevice(user : DeviceEntity): Single<Boolean>
+    fun insertDevice(user : DeviceEntity)
 
     @Query("SELECT * FROM device")
-    fun loadAllDevice(): Single<List<DeviceEntity>>
+    fun loadAllDevice(): List<DeviceEntity>
+
+    @Query("SELECT * FROM device")
+    fun loadAllDeviceL(): List<DeviceEntity>
 
     @Query("SELECT * FROM device WHERE device_id IN (:id)")
-    fun loadDeviceById(id: Int): Single<DeviceEntity>
+    fun loadDeviceById(id: Int): DeviceEntity
 
     @Query("DELETE FROM device WHERE device_id = :id")
-    fun delete(id: Int): Single<Boolean>
+    fun delete(id: Int)
 
     @Update
-    fun updatetoDao(deviceEntity: DeviceEntity?): Single<Boolean>
+    fun updatetoDao(deviceEntity: DeviceEntity?)
 }

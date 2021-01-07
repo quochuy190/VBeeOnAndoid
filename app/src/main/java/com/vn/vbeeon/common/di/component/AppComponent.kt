@@ -1,6 +1,8 @@
 package com.vn.vbeeon.common.di.component
 
+import android.app.Application
 import android.content.Context
+import com.vn.vbeeon.VBeeOnApplication
 import com.vn.vbeeon.common.di.module.LocalModule
 import com.vn.vbeeon.common.di.module.RemoteModule
 import com.vn.vbeeon.common.di.module.RepositoryModule
@@ -19,10 +21,19 @@ import javax.inject.Singleton
 @Component(
     modules = [RemoteModule::class,
         ViewModelModule::class,
+        LocalModule::class,
         RepositoryModule::class,
-        LocalModule::class]
+    ]
 )
 interface AppComponent {
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
+        fun build(): AppComponent
+    }
+
+    fun inject(application: VBeeOnApplication)
     fun inject(mainFragment: MainFragment)
     fun inject(demoFragment: DemoFragment)
     fun inject(homePageFragment: HomePageFragment)
@@ -34,10 +45,10 @@ interface AppComponent {
     fun inject(fragment: FragmentVBeeOnMission)
     fun inject(fragment: DeviceListNewFragment)
 
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        fun bindContext(context: Context?): Builder?
-        fun build(): AppComponent?
-    }
+//    @Component.Builder
+//    interface Builder {
+//        @BindsInstance
+//        fun bindContext(context: Context?): Builder?
+//        fun build(): AppComponent?
+//    }
 }

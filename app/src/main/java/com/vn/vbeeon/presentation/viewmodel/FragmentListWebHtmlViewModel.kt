@@ -2,8 +2,6 @@ package com.vn.vbeeon.presentation.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.vn.vbeeon.data.local.dao.UserDao
-import com.vn.vbeeon.data.repository.DeviceRepository
 import com.vn.vbeeon.data.repository.WebHtmlRepository
 import com.vn.vbeeon.domain.model.ObjHtmlData
 import com.vn.vbeeon.presentation.base.BaseViewModel
@@ -13,8 +11,6 @@ import javax.inject.Inject
 class FragmentListWebHtmlViewModel @Inject constructor() : BaseViewModel() {
     @Inject
     lateinit var repo: WebHtmlRepository
-    @Inject
-    lateinit var repoDevice: DeviceRepository
 
     public val listHtmlBase : MutableLiveData<List<ObjHtmlData>> = MutableLiveData()
     public val listHtmlCity : MutableLiveData<List<ObjHtmlData>> = MutableLiveData()

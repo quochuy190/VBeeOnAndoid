@@ -1,5 +1,6 @@
 package com.vn.vbeeon.common.di.module
 
+import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -51,7 +52,7 @@ class RemoteModule {
     @Provides
     @Singleton
     @Named("no-auth")
-    fun provideRetrofitNoAuth(context: Context): Retrofit? {
+    fun provideRetrofitNoAuth(application: Application): Retrofit? {
         val httpClient = OkHttpClient.Builder()
         httpClient.connectTimeout(1, TimeUnit.MINUTES)
         httpClient.readTimeout(30, TimeUnit.SECONDS)
@@ -68,7 +69,7 @@ class RemoteModule {
             GsonBuilder().setDateFormat(ConstantCommon.ISO_8601_DATE_TIME_FORMAT_RECEIVE)
                 .serializeNulls().create()
         return Retrofit.Builder()
-            .baseUrl(context.resources.getString(R.string.api_base_url))
+            .baseUrl(application.resources.getString(R.string.api_base_url))
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addConverterFactory(NullOnEmptyConverterFactory())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

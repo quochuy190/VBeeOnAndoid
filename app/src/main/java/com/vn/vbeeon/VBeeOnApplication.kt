@@ -36,13 +36,15 @@ class VBeeOnApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-
         //AppInitializeManager.init(this)
         initDagger()
     }
 
     private fun initDagger() {
-        appComponent = DaggerAppComponent.builder().bindContext(this)?.build()!!
+        appComponent =  DaggerAppComponent.builder()
+            .application(this)
+            .build()
+        appComponent.inject(this)
     }
 
 }
