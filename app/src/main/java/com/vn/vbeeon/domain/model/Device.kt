@@ -18,16 +18,18 @@ data class Device(
     var intSource: Int,
     var categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
     var categoryName: String,
+    var isStatus: Boolean = false,
+    var titelDetail: String
 )
 
 fun convertFromEntityList(deviceEntity: List<DeviceEntity>):List<Device>{
     var listDevice : MutableList<Device> = mutableListOf()
     deviceEntity.forEach {
-        listDevice.add(Device(it.id, it.name, it.intSource, it.categoryID, it.categoryName))
+        listDevice.add(Device(it.id, it.name, it.intSource, it.categoryID, it.categoryName, it.isStatus, it.titelDetail))
     }
     return listDevice
 }
 fun convertToEntity(device: Device) : DeviceEntity{
-    return DeviceEntity(device.id, device.name, device.intSource, device.categoryID, device.categoryName)
+    return DeviceEntity(device.id, device.name, device.intSource, device.categoryID, device.categoryName, device.isStatus, device.titelDetail)
 
 }

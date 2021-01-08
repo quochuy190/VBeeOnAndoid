@@ -23,6 +23,9 @@ data class DeviceEntity(
     @ColumnInfo(name = "category_id")
     var categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
     @ColumnInfo(name = "category_name")
-    var categoryName: String
-
+    var categoryName: String,
+    @ColumnInfo(name = "status")
+    var isStatus: Boolean = false,
+    @ColumnInfo(name = "titel_detail")
+    var titelDetail: String
 )

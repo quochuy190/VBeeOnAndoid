@@ -2,13 +2,17 @@ package com.vn.vbeeon.presentation.fragment
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
+import com.vn.vbeeon.domain.model.Device
 import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.activity.MainActivity
@@ -40,17 +44,16 @@ class HomePageFragment : BaseFragment() {
     override fun getLayoutRes(): Int {
         return R.layout.fragment_home_page
     }
-    fun startActivityAddDevice(){
-        context?.launchActivity<DeviceAddNewActivity>()
-    }
 
     override fun initView() {
         btn_add_device_empty_list.setOnSafeClickListener {
             context?.launchActivity<DeviceAddNewActivity>()
         }
-        mAdapter = DeviceHomeAdapter() { position, item ->
-           // (context as ConvertDigitalActivity).openFragment(WebViewFragment.newInstance(item.content), true)
-        }
+        mAdapter = DeviceHomeAdapter(onClick = {position, item ->
+
+        }, onClickDelete = {
+            Timber.d("")
+        })
         rvListDevice.apply { adapter = mAdapter }
     }
 

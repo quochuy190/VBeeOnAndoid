@@ -8,7 +8,10 @@ import com.vn.vbeeon.domain.model.ObjHtmlData
 import com.vsm.ambientmode.app.base.BaseAdapter
 
 
-class DeviceHomeAdapter(onClick: (position: Int, item: Device) -> Unit) : BaseAdapter<Device>(onClick) {
+class DeviceHomeAdapter(
+    onClick: (position: Int, item: Device) -> Unit,
+    onClickDelete: (item: Device) -> Unit
+) : BaseAdapter<Device>(onClick) {
 
     override fun getLayoutIdForPosition(position: Int): Int {
         return R.layout.item_device_local
@@ -18,7 +21,10 @@ class DeviceHomeAdapter(onClick: (position: Int, item: Device) -> Unit) : BaseAd
         return mListData[position]
     }
 
-    override fun getDiffCallback(oldList: List<Device>, newListData: List<Device>): DiffUtil.Callback {
+    override fun getDiffCallback(
+        oldList: List<Device>,
+        newListData: List<Device>
+    ): DiffUtil.Callback {
         return AddDeviceDiffCallback(oldList, newListData)
     }
 }
