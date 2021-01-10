@@ -27,6 +27,15 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
         >
-
+        <TextView
+            android:id="@+id/tvVersion"
+            android:textSize="@dimen/dimen_12sp"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/orange"
+            android:text="Vesion 1.0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

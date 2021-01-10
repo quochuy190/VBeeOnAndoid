@@ -25,7 +25,7 @@ class DevicesReposImpl @Inject constructor(): DeviceRepository {
                 VBeeOnApplication.instance.getString(R.string.device_name_sphyg),
                 R.drawable.img_device_sphyg,
                 0,
-                VBeeOnApplication.instance.getString(R.string.category_name_sphyg)
+                VBeeOnApplication.instance.getString(R.string.category_name_sphyg), false, "Xem chi tiết"
             )
         )
         listDevice.add(
@@ -34,7 +34,7 @@ class DevicesReposImpl @Inject constructor(): DeviceRepository {
                 VBeeOnApplication.instance.getString(R.string.device_name_obd),
                 R.drawable.img_device_obd,
                 1,
-                VBeeOnApplication.instance.getString(R.string.category_name_obd)
+                VBeeOnApplication.instance.getString(R.string.category_name_obd), false, "Xem chi tiết"
             )
         )
         return listDevice

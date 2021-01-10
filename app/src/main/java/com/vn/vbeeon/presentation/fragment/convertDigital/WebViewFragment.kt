@@ -57,8 +57,17 @@ class WebViewFragment : BaseFragment() {
         wvConvertDigital.getSettings().setJavaScriptEnabled(true);
         wvConvertDigital.setBackgroundColor(Color.TRANSPARENT);
         if (content.equals("vbeeon.com")){
+            tv_toolbar_title.text = "vbeeon"
+            tvSource.visibility = View.GONE
+            wvConvertDigital.loadUrl("https://vbeeon.com")
+        }else  if (content.equals("vbeeon.com/gioi-thieu")){
+            tv_toolbar_title.text = "Về chúng tôi"
             tvSource.visibility = View.GONE
             wvConvertDigital.loadUrl("https://vbeeon.com/gioi-thieu")
+        }else  if (content.equals("vbeeon.com/san-pham")){
+            tv_toolbar_title.text = "Sản phẩm"
+            tvSource.visibility = View.GONE
+            wvConvertDigital.loadUrl("https://vbeeon.com")
         }else{
             content="<font color='white'>" + content + "</font>";
             tvSource.visibility = View.VISIBLE

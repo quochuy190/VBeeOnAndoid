@@ -31,14 +31,6 @@ class MainViewModel @Inject constructor() : BaseViewModel() {
         error.value = throwable
     }
     fun loadDevices(){
-        repoDevice.insertDevice(DeviceEntity(0, "abc", 0, 0, "cdg"))
-//        repoDevice.getALL()
-//        userRepository.createUserTest(UserEntity(1, "abc", "abc"))
-        Timber.e("here ${repoDevice.getALL().size}")
-        var listDevice : MutableList<Device> = mutableListOf()
-        repoDevice.getALL().forEach {
-            listDevice.add(Device(it.id, it.name, it.intSource, it.categoryID, it.categoryName))
-        }
-        devicesRes.postValue(listDevice)
+        devicesRes.postValue(convertFromEntityList(repoDevice.getAllListDevice()))
     }
 }

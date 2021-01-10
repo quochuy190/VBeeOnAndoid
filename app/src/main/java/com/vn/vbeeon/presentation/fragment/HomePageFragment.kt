@@ -2,29 +2,18 @@ package com.vn.vbeeon.presentation.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.bumptech.glide.Glide
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.launchActivity
-import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
-import com.vn.vbeeon.domain.model.Device
-import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.activity.MainActivity
-import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
-import com.vn.vbeeon.presentation.fragment.convertDigital.WebViewFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
-import com.vsm.ambientmode.ui.timer.DeviceAddNewAdapter
 import com.vsm.ambientmode.ui.timer.DeviceHomeAdapter
-import com.vsm.ambientmode.ui.timer.HtmlAdapter
 import kotlinx.android.synthetic.main.fragment_home_page.*
-import kotlinx.android.synthetic.main.fragment_list_doc_convert_digital.*
 import timber.log.Timber
 
 

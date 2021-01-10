@@ -44,6 +44,7 @@ interface AppComponent {
     fun inject(fragment: SphygHomeFragment)
     fun inject(fragment: FragmentVBeeOnMission)
     fun inject(fragment: DeviceListNewFragment)
+    fun inject(fragment: FragmentVbeeonITForLife)
 
 //    @Component.Builder
 //    interface Builder {

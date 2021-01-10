@@ -17,6 +17,8 @@ object ConstantCommon {
     const val KEY_SEND_CONVERT_DIGITAL_1 = 0
     const val KEY_SEND_CONVERT_DIGITAL_2 = 1
     const val KEY_SEND_CONVERT_DIGITAL_3 = 2
+    const val KEY_SEND_CONVERT_DIGITAL_4 = 4
+    const val KEY_SEND_WEBVIEW_VBEEON_SP = 5
 
 
 

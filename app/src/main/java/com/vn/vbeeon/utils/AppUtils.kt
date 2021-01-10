@@ -28,9 +28,9 @@ object AppUtils {
         return info.versionCode
     }
 
-    fun versionName(): String {
-        val mgr = context.packageManager
-        val info = mgr.getPackageInfo(context.packageName, PackageManager.GET_META_DATA)
+    fun versionName(contextApp: Context): String {
+        val mgr = contextApp.packageManager
+        val info = mgr.getPackageInfo(contextApp.packageName, PackageManager.GET_META_DATA)
         return info.versionName
     }
 

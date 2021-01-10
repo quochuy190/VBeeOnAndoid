@@ -75,6 +75,7 @@
             tools:text="Gio va Thoi tiet" />
 
         <TextView
+            android:text="@string/tv_device_detail"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toStartOf="@+id/imgDeviceNew"
             android:id="@+id/tvDetail"
@@ -86,10 +87,10 @@
             android:duplicateParentState="true"
             android:ellipsize="end"
             android:gravity="left"
-            android:textSize="@dimen/sp_16"
+            android:textSize="@dimen/sp_14"
             app:layout_constraintStart_toEndOf="@+id/icCategoryDevice"
             app:layout_constraintTop_toBottomOf="@+id/tvDeviceNameNew"
-            tools:text="@string/tv_device_detail" />
+           />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
