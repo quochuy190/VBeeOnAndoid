@@ -14,6 +14,8 @@ object ConstantCommon {
     const val TOKEN_DEVICE = "TOKEN_DEVICE"
 
     const val KEY_SEND_OPTION_FRAGMENT = "KEY_SEND_OPTION_FRAGMENT"
+    const val KEY_WEBVIEW_HTML = "KEY_WEBVIEW_HTML"
+    const val KEY_WEBVIEW_URL = "KEY_WEBVIEW_URL"
     const val KEY_SEND_CONVERT_DIGITAL_1 = 0
     const val KEY_SEND_CONVERT_DIGITAL_2 = 1
     const val KEY_SEND_CONVERT_DIGITAL_3 = 2

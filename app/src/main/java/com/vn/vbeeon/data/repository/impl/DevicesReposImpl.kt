@@ -25,7 +25,9 @@ class DevicesReposImpl @Inject constructor(): DeviceRepository {
                 VBeeOnApplication.instance.getString(R.string.device_name_sphyg),
                 R.drawable.img_device_sphyg,
                 0,
-                VBeeOnApplication.instance.getString(R.string.category_name_sphyg), false, "Xem chi tiết"
+                VBeeOnApplication.instance.getString(R.string.category_name_sphyg), false, "https://vbeeon.com/may-do-huyet-ap",
+                "Là thiết bị tích hợp công nghệ Bluetooth giúp theo dõi," +
+                        " tầm soát huyết áp từ xa thuận lợi, hiệu quả qua ứng dụng trên smartphone"
             )
         )
         listDevice.add(
@@ -34,7 +36,9 @@ class DevicesReposImpl @Inject constructor(): DeviceRepository {
                 VBeeOnApplication.instance.getString(R.string.device_name_obd),
                 R.drawable.img_device_obd,
                 1,
-                VBeeOnApplication.instance.getString(R.string.category_name_obd), false, "Xem chi tiết"
+                VBeeOnApplication.instance.getString(R.string.category_name_obd), false, "https://vbeeon.com/thiet-bi-obd-basic",
+                "Là thiết bị cần thiết để kết nối các thiết bị thông minh lên hệ thống và điều khiển các thiết bị qua ứng dụng trên smartphone." +
+                        "Nếu bạn đã có iVIG thì xin hay cắm vào trên công OBD-II trên xe hơi của bạn."
             )
         )
         return listDevice

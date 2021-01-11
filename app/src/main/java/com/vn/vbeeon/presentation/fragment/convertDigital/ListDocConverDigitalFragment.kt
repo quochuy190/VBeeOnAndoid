@@ -51,7 +51,7 @@ class ListDocConverDigitalFragment : BaseFragment() {
 
     override fun initView() {
         mHtmlAdapter = HtmlAdapter { position, item ->
-            (context as FragmentActivity).openFragment(WebViewFragment.newInstance(item.content), true)
+            (context as FragmentActivity).openFragment(WebViewFragment.newInstance(item.content, ConstantCommon.KEY_WEBVIEW_HTML), true)
         }
         rvListHtml.apply { adapter = mHtmlAdapter }
 

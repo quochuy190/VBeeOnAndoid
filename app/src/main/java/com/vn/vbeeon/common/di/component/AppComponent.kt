@@ -11,6 +11,7 @@ import com.vn.vbeeon.presentation.fragment.DemoFragment
 import com.vn.vbeeon.presentation.fragment.HomePageFragment
 import com.vn.vbeeon.presentation.fragment.MainFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.*
+import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceDetailFragment
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
 import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
 import dagger.BindsInstance
@@ -45,6 +46,7 @@ interface AppComponent {
     fun inject(fragment: FragmentVBeeOnMission)
     fun inject(fragment: DeviceListNewFragment)
     fun inject(fragment: FragmentVbeeonITForLife)
+    fun inject(fragment: DeviceDetailFragment)
 
 //    @Component.Builder
 //    interface Builder {

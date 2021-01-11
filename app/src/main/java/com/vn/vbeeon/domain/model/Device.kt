@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.vn.vbeeon.data.local.entity.DeviceEntity
+import java.io.Serializable
 
 /**
  * Created by: Neo Company.
@@ -14,22 +15,24 @@ import com.vn.vbeeon.data.local.entity.DeviceEntity
  */
 data class Device(
     val id: Int,
-    var name: String?,
-    var intSource: Int,
-    var categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
-    var categoryName: String,
-    var isStatus: Boolean = false,
-    var titelDetail: String
-)
+    val name: String,
+    val intSource: Int,
+    val categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
+    val categoryName: String,
+    val isStatus: Boolean = false,
+    val titelDetail: String,
+    val desCription: String
+) : Serializable
 
 fun convertFromEntityList(deviceEntity: List<DeviceEntity>):List<Device>{
     var listDevice : MutableList<Device> = mutableListOf()
     deviceEntity.forEach {
-        listDevice.add(Device(it.id, it.name, it.intSource, it.categoryID, it.categoryName, it.isStatus, it.titelDetail))
+        listDevice.add(Device(it.id, it.name, it.intSource, it.categoryID, it.categoryName, it.isStatus, it.titelDetail, it.desCription))
     }
     return listDevice
 }
 fun convertToEntity(device: Device) : DeviceEntity{
-    return DeviceEntity(device.id, device.name, device.intSource, device.categoryID, device.categoryName, device.isStatus, device.titelDetail)
+    return DeviceEntity(device.id, device.name, device.intSource, device.categoryID, device.categoryName, device.isStatus,
+        device.titelDetail, device.desCription)
 
 }

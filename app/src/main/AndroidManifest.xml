@@ -22,7 +22,7 @@
             android:theme="@style/AppTheme.NoActionBar" >
 
         </activity>
-        <activity android:name=".presentation.activity.ConvertDigitalActivity"/>
+        <activity android:name=".presentation.activity.FragmentActivity"/>
 
         <activity
             android:screenOrientation="portrait"

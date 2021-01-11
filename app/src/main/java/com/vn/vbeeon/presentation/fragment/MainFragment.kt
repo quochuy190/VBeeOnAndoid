@@ -2,6 +2,7 @@ package com.vn.vbeeon.presentation.fragment
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.presentation.activity.MainActivity
@@ -31,6 +32,10 @@ class MainFragment : BaseFragment() {
     }
 
     override fun initView() {
+        pull_refesh.setOnRefreshListener {
+           // refreshAction()                    // refresh your list contents somehow
+            pull_refesh.isRefreshing = false   // reset the SwipeRefreshLayout (stop the loading spinner)
+        }
         initViewPager();
         bnv.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {

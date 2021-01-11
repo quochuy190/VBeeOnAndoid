@@ -17,15 +17,17 @@ data class DeviceEntity(
     @ColumnInfo(name = "device_id")
     val id: Int,
     @ColumnInfo(name = "device_name")
-    var name: String?,
+    val name: String,
     @ColumnInfo(name = "int_source")
-    var intSource: Int,
+    val intSource: Int,
     @ColumnInfo(name = "category_id")
-    var categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
+    val categoryID: Int,//1: thiết bị đo, 2: thiết bị trong xe hơi
     @ColumnInfo(name = "category_name")
-    var categoryName: String,
+    val categoryName: String,
     @ColumnInfo(name = "status")
     var isStatus: Boolean = false,
     @ColumnInfo(name = "titel_detail")
-    var titelDetail: String
+    val titelDetail: String,
+    @ColumnInfo(name = "des")
+    val desCription: String
 )

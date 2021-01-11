@@ -13,6 +13,7 @@ import com.vn.vbeeon.presentation.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_it_for_life.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 import timber.log.Timber
+import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 
 @Suppress("DEPRECATION")
@@ -41,7 +42,8 @@ class FragmentVbeeonITForLife : BaseFragment() {
         }
         tv_toolbar_title.text = "GIỚI THIỆU VỀ VBEEON"
         tvWebsite.setOnSafeClickListener {
-            (context as FragmentActivity).openFragment(WebViewFragment.newInstance("vbeeon.com/gioi-thieu"), true)
+            (context as FragmentActivity).openFragment(WebViewFragment.newInstance("https://vbeeon.com/gioi-thieu",
+                ConstantCommon.KEY_WEBVIEW_URL), true)
         }
         val txtMission = "<font color='#FFB900'>VEBEEON</font> ĐƯỢC XÂY DỰNG BỞI MỘT NHÓM CÁC CÔNG TY CÔNG NGHỆ CAO CỦA " +
                 "<font color='#FFB900'>VIỆT NAM</font>, CHÚNG TÔI NGHIÊN CỨU VÀ SỬ DỤNG CÁC CÔNG NGHỆ HIỆN ĐẠI NHẤT " +

@@ -48,5 +48,6 @@
     <string name="category_name_obd">Thiết bị trong xe hơi</string>
     <string name="tv_buy_device">Mua thiết bị tại <u>www.vbeeon.com</u></string>
     <string name="tv_device_detail"><u>Xem chi tiết</u></string>
+    <string name="tv_search_device"><u>Tìm kiếm thiết bị</u></string>
 
 </resources>

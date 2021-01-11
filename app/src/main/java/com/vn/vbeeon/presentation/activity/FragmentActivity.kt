@@ -35,12 +35,12 @@ class FragmentActivity : BaseActivity() {
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_4 ->
                 openFragment(
                     WebViewFragment.newInstance(
-                        "vbeeon.com"
+                        "https://vbeeon.com", ConstantCommon.KEY_WEBVIEW_URL
                     ), false)
             ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP ->
                 openFragment(
                     WebViewFragment.newInstance(
-                        "vbeeon.com/san-pham"
+                        "https://vbeeon.com/san-pham", ConstantCommon.KEY_WEBVIEW_URL
                     ), false)
 
         }
