@@ -10,6 +10,7 @@
     <include layout="@layout/toolbar_main" />
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/bg_clock"
@@ -117,12 +118,12 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.42" />
 
-<!--    image view tablayout-->
+    <!--    image view tablayout-->
     <ImageView
         android:id="@+id/imgUserHomeSphyg"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_multil_user"
+        android:src="@drawable/icon_person"
         app:layout_constraintDimensionRatio="2:0.8"
         app:layout_constraintEnd_toStartOf="@+id/imgGuildHomeSphyg"
         app:layout_constraintHorizontal_bias="0.5"
@@ -134,7 +135,7 @@
         android:id="@+id/imgGuildHomeSphyg"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_ihelp_outline"
+        android:src="@drawable/icon_guild"
         app:layout_constraintDimensionRatio="2:0.8"
         app:layout_constraintEnd_toStartOf="@+id/imgSendDataHomeSphyg"
         app:layout_constraintHorizontal_bias="0.5"
@@ -160,7 +161,7 @@
         android:id="@+id/imgHistoryHomeSphyg"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_history_outline"
+        android:src="@drawable/icon_history"
         app:layout_constraintDimensionRatio="2:0.8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -169,8 +170,9 @@
         app:layout_constraintWidth_percent="0.24"
         app:tint="@color/textAppBar" />
 
-<!--    text view tablayout-->
+    <!--    text view tablayout-->
     <TextView
+        android:id="@+id/tvUser"
         style="@style/TextTabLayoutSphyg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -235,5 +237,274 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:id="@+id/llTabLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/bgr_tablayout_sphy"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUser">
+
+        <TextView
+            style="@style/TextTabLayoutSphygMedium"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/tab_sphy_data_saved"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuildHomeSphyg"
+            app:layout_constraintStart_toStartOf="@+id/imgGuildHomeSphyg"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuildHomeSphyg" />
+
+
+        <TextView
+            style="@style/TextTabLayoutSphygMedium"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/tab_sphy_data_live"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuildHomeSphyg"
+            app:layout_constraintStart_toStartOf="@+id/imgGuildHomeSphyg"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuildHomeSphyg" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="@dimen/dimen_1dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/llTabLayout"
+        app:layout_constraintEnd_toEndOf="@id/llTabLayout"
+        app:layout_constraintStart_toStartOf="@id/llTabLayout"
+        app:layout_constraintTop_toTopOf="@id/llTabLayout" />
+
+    <TextView
+        android:id="@+id/tvDateTimeFull"
+        style="@style/TextDateTimeSphy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:gravity="center"
+        android:padding="@dimen/dimen_10dp"
+        android:text="11/01/2020 23:32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llTabLayout"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/dimen_5dp"
+        android:rotation="180"
+        android:src="@drawable/forward_sphy"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDateTimeFull"
+        app:layout_constraintDimensionRatio="1.67:1"
+        app:layout_constraintEnd_toStartOf="@+id/tvDateTimeFull"
+        app:layout_constraintTop_toTopOf="@+id/tvDateTimeFull" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/dimen_5dp"
+        android:src="@drawable/forward_sphy"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDateTimeFull"
+        app:layout_constraintDimensionRatio="1.67:1"
+        app:layout_constraintStart_toEndOf="@+id/tvDateTimeFull"
+        app:layout_constraintTop_toTopOf="@+id/tvDateTimeFull" />
+
+
+    <!--    image view tablayout-->
+    <ImageView
+        android:id="@+id/imgScanDevice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_search_device"
+        app:layout_constraintBottom_toTopOf="@+id/tvScanDevice"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toStartOf="@+id/imgGuildHomeSphyg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.24" />
+
+    <ImageView
+        android:id="@+id/imgSaveData"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_save_one"
+        app:layout_constraintBottom_toTopOf="@+id/tvScanDevice"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toStartOf="@+id/imgSendDataHomeSphyg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgUserHomeSphyg"
+        app:layout_constraintWidth_percent="0.24"
+        app:tint="@color/textAppBar" />
+
+    <ImageView
+        android:id="@+id/imgSaveAll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_save_all"
+        app:layout_constraintBottom_toTopOf="@+id/tvScanDevice"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toStartOf="@+id/imgHistoryHomeSphyg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgGuildHomeSphyg"
+        app:layout_constraintWidth_percent="0.24"
+        app:tint="@color/textAppBar" />
+
+    <ImageView
+        android:id="@+id/imgDeleteData"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_trash_blue"
+        app:layout_constraintBottom_toTopOf="@+id/tvScanDevice"
+        app:layout_constraintDimensionRatio="2:0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgSendDataHomeSphyg"
+        app:layout_constraintWidth_percent="0.24"
+        app:tint="@color/textAppBar" />
+
+    <!--    text view tablayout-->
+    <TextView
+        android:id="@+id/tvScanDevice"
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:text="@string/txt_scan_device"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgUserHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgUserHomeSphyg" />
+
+    <TextView
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:text="@string/txt_save_data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgGuildHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgGuildHomeSphyg" />
+
+    <TextView
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:text="@string/txt_save_all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgSendDataHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgSendDataHomeSphyg" />
+
+    <TextView
+        style="@style/TextTabLayoutSphyg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:text="@string/txt_delete_data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgHistoryHomeSphyg"
+        app:layout_constraintStart_toStartOf="@+id/imgHistoryHomeSphyg" />
+
+    <TextView
+        style="@style/TextSp14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_5dp"
+        android:text="@string/txt_uong_thuoc"
+        app:layout_constraintBottom_toBottomOf="@+id/viewTimeClock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+
+    <TextView
+        android:id="@+id/tvBloodPressure"
+        style="@style/TextSp14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_5dp"
+        android:text="@string/txt_blood_pressure_readings"
+        app:layout_constraintBottom_toBottomOf="@+id/viewTimeClock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:padding="@dimen/dimen_5dp"
+        android:src="@drawable/icon_person"
+        app:civ_border_color="@color/grey_20"
+        app:civ_border_width="@dimen/dimen_1dp"
+        android:id="@+id/imgAvataUser"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvNameUser"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBloodPressure"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <TextView
+        style="@style/TextSp14"
+        android:id="@+id/tvNameUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_uong_thuoc"
+        app:layout_constraintBottom_toTopOf="@+id/imgSaveData"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAvataUser" />
+
+    <ImageView
+        android:padding="@dimen/dimen_5dp"
+        android:src="@drawable/icon_heartbeat"
+        android:id="@+id/imgHeart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvVlueBlood"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/imgAvataUser"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_percent="0.1"
+        app:tint="@color/red" />
+
+    <TextView
+        style="@style/TextSp14"
+        android:id="@+id/tvVlueBlood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_uong_thuoc"
+        app:layout_constraintBottom_toTopOf="@+id/imgSaveData"
+        app:layout_constraintEnd_toStartOf="@id/imgAvataUser"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgHeart" />
+
+    <ImageView
+        android:padding="@dimen/dimen_5dp"
+        android:src="@drawable/ic_smile"
+        android:id="@+id/imgSmile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@+id/imgAvataUser"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@+id/imgAvataUser"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.1"
+        app:tint="@color/textAppBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

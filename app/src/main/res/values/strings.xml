@@ -50,4 +50,15 @@
     <string name="tv_device_detail"><u>Xem chi tiết</u></string>
     <string name="tv_search_device"><u>Tìm kiếm thiết bị</u></string>
 
+    <string name="tab_sphy_data_saved"><u>Dữ liệu dã lưu</u></string>
+    <string name="tab_sphy_data_live"><u>Dữ liệu máy đo</u></string>
+
+    <string name="txt_scan_device">Quét thiết bị</string>
+    <string name="txt_save_data">Lưu dữ liệu</string>
+    <string name="txt_save_all">Lưu tất cả</string>
+    <string name="txt_delete_data">Xóa dữ liệu</string>
+    <string name="txt_uong_thuoc"><u>Uống thuốc</u></string>
+    <string name="txt_blood_pressure_readings"><u>Chỉ số huyết áp</u></string>
+
+
 </resources>
