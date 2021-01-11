@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
-import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
+import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.FragmentListWebHtmlViewModel
 import kotlinx.android.synthetic.main.fragment_webv.*
@@ -77,7 +77,7 @@ class WebViewFragment : BaseFragment() {
 
     override fun initViewModel() {
         mViewModel =
-            ViewModelProviders.of(activity as ConvertDigitalActivity, viewModelFactory).get(
+            ViewModelProviders.of(activity as FragmentActivity, viewModelFactory).get(
                 FragmentListWebHtmlViewModel::class.java
             )
 

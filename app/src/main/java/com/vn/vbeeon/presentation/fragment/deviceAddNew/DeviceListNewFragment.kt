@@ -5,11 +5,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
+import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.DeviceViewModel
 import com.vsm.ambientmode.ui.timer.DeviceAddNewAdapter
 import kotlinx.android.synthetic.main.fragment_add_new_device.*
+import kotlinx.android.synthetic.main.toolbar_main.*
+import timber.log.Timber
 
 
 @Suppress("DEPRECATION")
@@ -31,6 +34,11 @@ class DeviceListNewFragment : BaseFragment() {
     }
 
     override fun initView() {
+        imgBack.setOnSafeClickListener {
+            Timber.e("ib_toolbar_close.setOnSafeClickListener")
+            activity?.onBackPressed()
+        }
+        tv_toolbar_title.text = "DANH SÁCH THIẾT BỊ"
         adapterDevice = DeviceAddNewAdapter() { position, item ->
             //(context as ConvertDigitalActivity).openFragment(WebViewFragment.newInstance(item.content), true)
         }

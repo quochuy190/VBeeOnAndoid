@@ -1,9 +1,8 @@
 package com.vn.vbeeon.data.local.dao
 
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
+import androidx.room.*
+import com.vn.vbeeon.data.local.entity.DeviceEntity
 import com.vn.vbeeon.data.local.entity.UserEntity
 import io.reactivex.rxjava3.core.Single
 
@@ -17,7 +16,20 @@ import io.reactivex.rxjava3.core.Single
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUserObj(user : UserEntity)
+    fun insertUserObj(user: UserEntity)
 
+    @Query("SELECT * FROM user")
+    fun loadAllUser(): List<UserEntity>
 
+    @Query("SELECT * FROM user WHERE id IN (:id)")
+    fun loadUserById(id: Int): UserEntity
+
+    @Query("DELETE FROM user WHERE id = :id")
+    fun delete(id: Int)
+
+    @Query("DELETE FROM user")
+    fun deleteAll()
+
+    @Update
+    fun updatetoDao(user: UserEntity?)
 }

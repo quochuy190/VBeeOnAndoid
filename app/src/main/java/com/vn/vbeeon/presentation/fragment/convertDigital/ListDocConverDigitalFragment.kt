@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.openFragment
-import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
+import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.FragmentListWebHtmlViewModel
 import com.vsm.ambientmode.ui.timer.HtmlAdapter
@@ -51,7 +51,7 @@ class ListDocConverDigitalFragment : BaseFragment() {
 
     override fun initView() {
         mHtmlAdapter = HtmlAdapter { position, item ->
-            (context as ConvertDigitalActivity).openFragment(WebViewFragment.newInstance(item.content), true)
+            (context as FragmentActivity).openFragment(WebViewFragment.newInstance(item.content), true)
         }
         rvListHtml.apply { adapter = mHtmlAdapter }
 
@@ -59,7 +59,7 @@ class ListDocConverDigitalFragment : BaseFragment() {
 
     override fun initViewModel() {
         mViewModel =
-            ViewModelProviders.of(activity as ConvertDigitalActivity, viewModelFactory).get(
+            ViewModelProviders.of(activity as FragmentActivity, viewModelFactory).get(
                 FragmentListWebHtmlViewModel::class.java
             )
         Timber.d("file  $jsonFile")

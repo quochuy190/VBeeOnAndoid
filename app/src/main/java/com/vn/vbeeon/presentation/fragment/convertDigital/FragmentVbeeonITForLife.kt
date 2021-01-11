@@ -8,7 +8,7 @@ import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.common.extensions.setTextHTML
-import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
+import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_it_for_life.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -41,7 +41,7 @@ class FragmentVbeeonITForLife : BaseFragment() {
         }
         tv_toolbar_title.text = "GIỚI THIỆU VỀ VBEEON"
         tvWebsite.setOnSafeClickListener {
-            (context as ConvertDigitalActivity).openFragment(WebViewFragment.newInstance("vbeeon.com/gioi-thieu"), true)
+            (context as FragmentActivity).openFragment(WebViewFragment.newInstance("vbeeon.com/gioi-thieu"), true)
         }
         val txtMission = "<font color='#FFB900'>VEBEEON</font> ĐƯỢC XÂY DỰNG BỞI MỘT NHÓM CÁC CÔNG TY CÔNG NGHỆ CAO CỦA " +
                 "<font color='#FFB900'>VIỆT NAM</font>, CHÚNG TÔI NGHIÊN CỨU VÀ SỬ DỤNG CÁC CÔNG NGHỆ HIỆN ĐẠI NHẤT " +

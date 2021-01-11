@@ -1,5 +1,6 @@
 package com.vn.vbeeon.data.local.entity
 
+import androidx.annotation.DrawableRes
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -13,9 +14,8 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "user")
 data class UserEntity(
-    @PrimaryKey
-    @ColumnInfo(name = "user_id")
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     @ColumnInfo(name = "user_name")
     var name: String?,
     @ColumnInfo(name = "user_birthday")

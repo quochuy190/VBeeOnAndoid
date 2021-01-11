@@ -18,12 +18,12 @@ import vn.neo.smsvietlott.common.di.util.ConstantCommon
  * Time: 23:38
  * Version: 1.0
  */
-class ConvertDigitalActivity : BaseActivity() {
+class FragmentActivity : BaseActivity() {
 
     override fun provideLayoutId() = R.layout.activity_frame_layout
 
     override fun setupView(savedInstanceState: Bundle?) {
-        val option = intent.getIntExtra(ConstantCommon.KEY_SEND_OPTION_CD, 0)
+        val option = intent.getIntExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, 0)
         Timber.d("ConvertDigitalActivity "+option)
         when (option){
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_1 ->

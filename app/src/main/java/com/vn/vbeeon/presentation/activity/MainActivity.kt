@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
             }
             R.id.nav_shop -> {
-                launchActivity<ConvertDigitalActivity>{
-                    putExtra(ConstantCommon.KEY_SEND_OPTION_CD, ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP)
+                launchActivity<FragmentActivity>{
+                    putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP)
                 }
             }
             R.id.nav_intro -> {
-                launchActivity<ConvertDigitalActivity>{
-                    putExtra(ConstantCommon.KEY_SEND_OPTION_CD, ConstantCommon.KEY_SEND_CONVERT_DIGITAL_4)
+                launchActivity<FragmentActivity>{
+                    putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_SEND_CONVERT_DIGITAL_4)
                 }
             }
             R.id.nav_account -> {

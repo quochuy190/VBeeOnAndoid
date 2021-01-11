@@ -13,7 +13,7 @@ object ConstantCommon {
     const val TOKEN_USER = "TOKEN_USER"
     const val TOKEN_DEVICE = "TOKEN_DEVICE"
 
-    const val KEY_SEND_OPTION_CD = "KEY_SEND_OPTION_CD"
+    const val KEY_SEND_OPTION_FRAGMENT = "KEY_SEND_OPTION_FRAGMENT"
     const val KEY_SEND_CONVERT_DIGITAL_1 = 0
     const val KEY_SEND_CONVERT_DIGITAL_2 = 1
     const val KEY_SEND_CONVERT_DIGITAL_3 = 2

@@ -12,7 +12,8 @@ import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
-import com.vn.vbeeon.presentation.activity.ConvertDigitalActivity
+import com.vn.vbeeon.presentation.activity.FragmentActivity
+
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_convert_digital.*
@@ -52,8 +53,8 @@ class ConvertDigitalPageFragment : BaseFragment() {
     }
 
     private fun startActivityOption(option : Int) {
-        context?.launchActivity<ConvertDigitalActivity>{
-            putExtra(ConstantCommon.KEY_SEND_OPTION_CD, option)
+        context?.launchActivity<FragmentActivity>{
+            putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, option)
         }
     }
 
