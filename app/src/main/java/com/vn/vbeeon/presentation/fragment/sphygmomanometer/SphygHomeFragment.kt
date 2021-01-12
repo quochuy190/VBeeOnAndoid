@@ -13,11 +13,16 @@ import com.ideabus.model.data.*
 import com.ideabus.model.protocol.BaseProtocol
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
+import com.vn.vbeeon.common.extensions.openFragment
+import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.common.extensions.setTextHTML
 import com.vn.vbeeon.domain.model.Global
 import com.vn.vbeeon.domain.model.Global.sdkid_BPM
+import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
+import com.vn.vbeeon.presentation.fragment.user.AddUserFragment
+import com.vn.vbeeon.presentation.fragment.user.ListUserFragment
 import com.vn.vbeeon.presentation.viewmodel.SphygmomanometerViewModel
 import kotlinx.android.synthetic.main.fragment_sphyg_home.*
 import timber.log.Timber
@@ -65,6 +70,9 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener,
         tv_dia_title.text  = setTextHTML(diaTitle)
         val pulseTitle = "PULSE/<font color='#3497FD'>min</font>"
         tv_pulse_title.text  = setTextHTML(pulseTitle)
+        imgUserHomeSphyg.setOnSafeClickListener {
+            (context as SphygmomanometerActivity).openFragment(ListUserFragment(), true)
+        }
     }
 
     override fun initViewModel() {

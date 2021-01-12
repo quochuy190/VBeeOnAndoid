@@ -7,6 +7,7 @@ import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.domain.model.User
 import com.vn.vbeeon.presentation.activity.FragmentActivity
+import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add_user.*
@@ -41,7 +42,7 @@ class AddUserFragment : BaseFragment() {
     }
 
     override fun initViewModel() {
-        mViewModel = ViewModelProviders.of(activity as FragmentActivity, viewModelFactory).get(
+        mViewModel = ViewModelProviders.of(activity as SphygmomanometerActivity, viewModelFactory).get(
             UserViewModel::class.java)
 
     }

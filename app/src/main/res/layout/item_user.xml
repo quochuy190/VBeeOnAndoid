@@ -19,7 +19,7 @@
 
         <TextView
             android:textColor="@color/white"
-            android:id="@+id/tvTimeCalName"
+            android:id="@+id/tvUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:duplicateParentState="true"

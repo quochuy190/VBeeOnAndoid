@@ -11,7 +11,7 @@ import com.vsm.ambientmode.app.base.BaseAdapter
 class UserAdapter(onClick: (position: Int, item: User) -> Unit) : BaseAdapter<User>(onClick) {
 
     override fun getLayoutIdForPosition(position: Int): Int {
-        return R.layout.item_html
+        return R.layout.item_user
     }
 
     override fun getItemForPosition(position: Int): User {

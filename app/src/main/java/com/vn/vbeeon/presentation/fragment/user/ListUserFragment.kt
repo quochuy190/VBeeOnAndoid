@@ -10,6 +10,7 @@ import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
+import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.adapter.deviceAddNew.DeviceAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.WebViewFragment
@@ -20,6 +21,7 @@ import com.vsm.ambientmode.ui.timer.UserAdapter
 import kotlinx.android.synthetic.main.fragment_add_new_device.*
 import kotlinx.android.synthetic.main.fragment_add_new_device.txt_link
 import kotlinx.android.synthetic.main.fragment_home_page.*
+import kotlinx.android.synthetic.main.fragment_list_user.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 import timber.log.Timber
 import vn.neo.smsvietlott.common.di.util.ConstantCommon
@@ -52,14 +54,16 @@ class ListUserFragment : BaseFragment() {
         adapterUser = UserAdapter { position, item ->
 
         }
-        rvDeviceNew.apply { adapter = adapterUser }
-
+        rvListUser.apply { adapter = adapterUser }
+        btnAddUser.setOnSafeClickListener { (context as SphygmomanometerActivity).openFragment(AddUserFragment(), true) }
     }
 
     override fun initViewModel() {
-        mViewModel = ViewModelProviders.of(activity as DeviceAddNewActivity, viewModelFactory).get(
-            UserViewModel::class.java
-        )
+        mViewModel = activity?.let {
+            ViewModelProviders.of(it, viewModelFactory).get(
+                UserViewModel::class.java
+            )
+        }!!
         mViewModel.getListUser()
     }
 
