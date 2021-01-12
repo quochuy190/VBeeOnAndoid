@@ -16,19 +16,23 @@ import com.vn.vbeeon.data.local.entity.UserEntity
  */
 data class User(
     val id: Int,
-    var name: String?,
+    val name: String,
     @DrawableRes val resId: Int = 0,
-    var birthDay: String,
+    val birthDay: String,
 )
 
-fun convertFromEntityList(userEntity: List<User>):List<User>{
+fun convertUserFromListEntity(userEntity: List<UserEntity>):List<User>{
     var listUser : MutableList<User> = mutableListOf()
     userEntity.forEach {
-        listUser.add(User(it.id, it.name, it.resId, it.birthDay))
+        listUser.add(User(it.id, it.name, 0, it.birthDay))
     }
     return listUser
 }
-//fun convertToEntity(user: User) : UserEntity{
-//    return UserEntity(user.id, user.name, user.resId, user.birthDay)
-//
-//}
+fun convertUserFromEntityObj(it: UserEntity) : User{
+
+    return User(it.id, it.name, 0, it.birthDay)
+}
+fun convertToEntityObj(user: User) : UserEntity{
+    return UserEntity(user.id, user.name, user.birthDay)
+
+}

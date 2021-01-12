@@ -17,7 +17,7 @@ data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @ColumnInfo(name = "user_name")
-    var name: String?,
+    val name: String,
     @ColumnInfo(name = "user_birthday")
-    var birthDay : String?
+    val birthDay : String
 )

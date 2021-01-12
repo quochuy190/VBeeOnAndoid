@@ -39,7 +39,11 @@ class HomePageFragment : BaseFragment() {
     override fun initView() {
         btn_add_device_empty_list.setOnSafeClickListener {
             Timber.e("click add device")
-            context?.launchActivity<DeviceAddNewActivity>()
+            context?.launchActivity<DeviceAddNewActivity>() {
+                putExtra(
+                    ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_OPEN_FRAGMENT_DEVICE
+                )
+            }
         }
         mAdapter = DeviceHomeAdapter(onClick = { position, item ->
 
@@ -48,8 +52,11 @@ class HomePageFragment : BaseFragment() {
         })
         rvListDevice.apply { adapter = mAdapter }
         txt_link.setOnSafeClickListener {
-            context?.launchActivity<FragmentActivity>{
-                putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP)
+            context?.launchActivity<FragmentActivity> {
+                putExtra(
+                    ConstantCommon.KEY_SEND_OPTION_FRAGMENT,
+                    ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP
+                )
             }
         }
     }

@@ -7,6 +7,7 @@ import com.vn.vbeeon.presentation.base.BaseActivity
 import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalDetailFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.FragmentVBeeOnMission
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
+import com.vn.vbeeon.presentation.fragment.user.AddUserFragment
 import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 /**
@@ -21,7 +22,12 @@ class DeviceAddNewActivity : BaseActivity() {
     override fun provideLayoutId() = R.layout.activity_frame_layout
 
     override fun setupView(savedInstanceState: Bundle?) {
-        openFragment(DeviceListNewFragment(), false)
+        val option = intent.getStringExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT)
+        when (option){
+            ConstantCommon.KEY_OPEN_FRAGMENT_DEVICE -> openFragment(DeviceListNewFragment(), false)
+            ConstantCommon.KEY_OPEN_FRAGMENT_USER -> openFragment(AddUserFragment(), false)
+        }
+
 
     }
 }

@@ -39,7 +39,9 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         imgAdd.setOnSafeClickListener {
-            launchActivity<DeviceAddNewActivity>()
+            launchActivity<DeviceAddNewActivity>{
+                putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_OPEN_FRAGMENT_DEVICE)
+            }
         }
         navView.setNavigationItemSelectedListener(this)
         tvVersion.text = "Version: "+AppUtils.versionName(this)

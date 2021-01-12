@@ -14,6 +14,8 @@ import com.vn.vbeeon.presentation.fragment.convertDigital.*
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceDetailFragment
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
 import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
+import com.vn.vbeeon.presentation.fragment.user.AddUserFragment
+import com.vn.vbeeon.presentation.fragment.user.ListUserFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -47,6 +49,8 @@ interface AppComponent {
     fun inject(fragment: DeviceListNewFragment)
     fun inject(fragment: FragmentVbeeonITForLife)
     fun inject(fragment: DeviceDetailFragment)
+    fun inject(fragment: AddUserFragment)
+    fun inject(fragment: ListUserFragment)
 
 //    @Component.Builder
 //    interface Builder {

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBgMain"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/toolbar_main"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_name"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_input_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@android:color/black">
+        <EditText
+            android:paddingEnd="@dimen/dimen_20dp"
+            android:id="@+id/edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:backgroundTint="@android:color/transparent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        app:layout_constraintWidth_percent="0.65"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="15dp"
+        android:id="@+id/btnRegister"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/shape_button_blue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_register"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
