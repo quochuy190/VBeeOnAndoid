@@ -1,4 +1,4 @@
-package com.vn.vbeeon.presentation.fragment
+package com.vn.vbeeon.presentation.fragment.bottombar
 
 import android.os.Bundle
 import android.view.View
@@ -7,13 +7,11 @@ import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.launchActivity
-import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
-import com.vn.vbeeon.presentation.fragment.convertDigital.WebViewFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import com.vsm.ambientmode.ui.timer.DeviceHomeAdapter
 import kotlinx.android.synthetic.main.fragment_home_page.*

@@ -15,6 +15,7 @@ import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
+import com.vn.vbeeon.presentation.viewmodel.DeviceViewModel
 import com.vn.vbeeon.presentation.viewmodel.FragmentListWebHtmlViewModel
 import kotlinx.android.synthetic.main.fragment_device_detail.*
 import kotlinx.android.synthetic.main.fragment_webv.*
@@ -26,7 +27,7 @@ import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 @Suppress("DEPRECATION")
 class DeviceDetailFragment : BaseFragment() {
-    lateinit var mViewModel: FragmentListWebHtmlViewModel
+    lateinit var mViewModel: DeviceViewModel
     override fun inject(appComponent: AppComponent) {
         appComponent.inject(this)
     }
@@ -70,13 +71,14 @@ class DeviceDetailFragment : BaseFragment() {
 
         btnSearchDevice.setOnSafeClickListener {
             context?.launchActivity<SphygmomanometerActivity>()
+            mViewModel.saveDevice(device)
         }
     }
 
     override fun initViewModel() {
         mViewModel =
             ViewModelProviders.of(activity as DeviceAddNewActivity, viewModelFactory).get(
-                FragmentListWebHtmlViewModel::class.java
+                DeviceViewModel::class.java
             )
 
     }

@@ -25,7 +25,9 @@ fun Activity.openFragment(
     addToBackStack: Boolean
 ) {
     this as AppCompatActivity
-    supportFragmentManager.beginTransaction().apply {
+    supportFragmentManager.beginTransaction()
+        .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_in_left)
+        .apply {
         add(R.id.frameLayout, fragment)
         if (addToBackStack) addToBackStack(fragment::class.java.simpleName)
         commit()

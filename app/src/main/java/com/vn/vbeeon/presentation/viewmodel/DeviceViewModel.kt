@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.vn.vbeeon.data.repository.DeviceRepository
 //import com.vn.vbeeon.data.repository.DeviceRepository
 import com.vn.vbeeon.domain.model.Device
+import com.vn.vbeeon.domain.model.convertToEntity
 import com.vn.vbeeon.presentation.base.BaseViewModel
 import timber.log.Timber
 import javax.inject.Inject
@@ -25,6 +26,9 @@ class DeviceViewModel @Inject constructor() : BaseViewModel() {
 
     fun getListDevice() {
         listDeviceRes.postValue( repo.createDevice())
+    }
+    fun saveDevice(device: Device){
+        repo.insertDevice(convertToEntity(device))
     }
 
 }

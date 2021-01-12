@@ -1,11 +1,10 @@
-package com.vn.vbeeon.presentation.fragment
+package com.vn.vbeeon.presentation.fragment.bottombar
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.presentation.activity.MainActivity
-import com.vn.vbeeon.presentation.adapter.MainViewPagerAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 

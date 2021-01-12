@@ -13,7 +13,7 @@ import io.reactivex.rxjava3.core.Single
  */
 @Dao interface DeviceDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertDevice(user : DeviceEntity)
 
     @Query("SELECT * FROM device")

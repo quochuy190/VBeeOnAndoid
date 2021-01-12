@@ -1,4 +1,4 @@
-package com.vn.vbeeon.presentation.fragment.convertDigital
+package com.vn.vbeeon.presentation.fragment.bottombar
 
 import android.Manifest
 import android.app.Activity

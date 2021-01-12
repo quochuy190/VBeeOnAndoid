@@ -13,11 +13,17 @@ android {
 
     defaultConfig {
         applicationId "com.vn.vbeeon"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
     }
 
     buildTypes {
@@ -40,6 +46,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 //Version
 ext.timber_version = "4.7.1"
@@ -60,6 +71,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //lib mlife
+    implementation (name:'scale-sdk_v1.1.6_1907291543', ext:'aar')
+    implementation (name:'sdk-release', ext:'aar')
 
     //view
     implementation "androidx.fragment:fragment-ktx:1.2.5"

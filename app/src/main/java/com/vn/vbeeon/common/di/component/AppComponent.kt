@@ -1,15 +1,15 @@
 package com.vn.vbeeon.common.di.component
 
 import android.app.Application
-import android.content.Context
 import com.vn.vbeeon.VBeeOnApplication
 import com.vn.vbeeon.common.di.module.LocalModule
 import com.vn.vbeeon.common.di.module.RemoteModule
 import com.vn.vbeeon.common.di.module.RepositoryModule
 import com.vn.vbeeon.common.di.module.ViewModelModule
-import com.vn.vbeeon.presentation.fragment.DemoFragment
-import com.vn.vbeeon.presentation.fragment.HomePageFragment
+import com.vn.vbeeon.presentation.fragment.bottombar.DemoFragment
+import com.vn.vbeeon.presentation.fragment.bottombar.HomePageFragment
 import com.vn.vbeeon.presentation.fragment.MainFragment
+import com.vn.vbeeon.presentation.fragment.bottombar.ConvertDigitalPageFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.*
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceDetailFragment
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment

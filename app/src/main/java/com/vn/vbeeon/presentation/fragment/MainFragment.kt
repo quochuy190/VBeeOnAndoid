@@ -2,13 +2,13 @@ package com.vn.vbeeon.presentation.fragment
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.adapter.MainViewPagerAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
-import com.vn.vbeeon.presentation.fragment.convertDigital.ConvertDigitalPageFragment
+import com.vn.vbeeon.presentation.fragment.bottombar.HomePageFragment
+import com.vn.vbeeon.presentation.fragment.bottombar.ConvertDigitalPageFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
