@@ -8,6 +8,7 @@ import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
+import com.vn.vbeeon.presentation.activity.ConnectionActivity
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.activity.MainActivity
@@ -46,7 +47,11 @@ class HomePageFragment : BaseFragment() {
             }
         }
         mAdapter = DeviceHomeAdapter(onClick = { position, item ->
-
+            context?.launchActivity<ConnectionActivity>() {
+                putExtra(
+                    ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_OPEN_FRAGMENT_DEVICE
+                )
+            }
         }, onClickDelete = {
             Timber.d("")
         })

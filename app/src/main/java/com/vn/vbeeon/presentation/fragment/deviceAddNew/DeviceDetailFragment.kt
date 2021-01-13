@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.vn.vbeeon.presentation.fragment.deviceAddNew
 
 import android.content.Context

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBgMain"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/toolbar_main"/>
+    <ImageView
+
+        app:layout_constraintDimensionRatio="1:0.653"
+        android:scaleType="fitXY"
+        android:src="@drawable/landmark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+    <EditText
+        android:textCursorDrawable="@color/textAppBar"
+        android:textColor="@color/textAppBar"
+        android:hint="@string/hide_input_name"
+        android:paddingLeft="@dimen/dimen_50dp"
+        android:id="@+id/edtFullName"
+        android:backgroundTint="@color/textAppBar"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.75"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColorHint="@color/grey_20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <ImageView
+
+        android:src="@drawable/ic_user"
+        android:padding="@dimen/dimen_15dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/edtFullName"
+        app:layout_constraintTop_toTopOf="@+id/edtFullName"
+        app:layout_constraintBottom_toBottomOf="@+id/edtFullName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <TextView
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        style="@style/TextMainItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

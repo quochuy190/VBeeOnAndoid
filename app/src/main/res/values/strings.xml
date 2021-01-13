@@ -61,6 +61,7 @@
     <string name="txt_uong_thuoc"><u>Uống thuốc</u></string>
     <string name="txt_blood_pressure_readings"><u>Chỉ số huyết áp</u></string>
     <string name="lbl_input_name">Nhập vào tên</string>
+    <string name="hide_input_name">Nhập vào tên</string>
 
 
 </resources>

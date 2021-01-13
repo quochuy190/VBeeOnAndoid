@@ -29,7 +29,7 @@ import java.util.*
 class SplashScreenAcitivity : BaseActivity(){
 
     override fun provideLayoutId(): Int {
-       return R.layout.activity_splashscreen
+       return R.layout.fragment_introduce
         //
     }
 
@@ -39,12 +39,12 @@ class SplashScreenAcitivity : BaseActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splashscreen)
-        if (checkPermissionApp(this)) {
-            goToNextScreen()
-        } else {
-            showDialogPermission(this)
-        }
+      //  setContentView(R.layout.activity_splashscreen)
+//        if (checkPermissionApp(this)) {
+//            goToNextScreen()
+//        } else {
+//            showDialogPermission(this)
+//        }
         if (intent.extras != null) {
             try {
                 Timber.e("onCreate: " + intent.extras)

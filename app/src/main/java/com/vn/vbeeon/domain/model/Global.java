@@ -12,7 +12,6 @@ import com.ideabus.model.protocol.WBPProtocol;
  * Created by Ting on 16/4/20.
  */
 public class Global {
-
     public static BaseProtocol protocol;
     public static WBPProtocol wbpProtocol;
     public static WBO3Protocol wbo3Protocol;
