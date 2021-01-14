@@ -36,6 +36,19 @@
                 app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
                 app:itemTextAppearanceInactive="@style/BottomNavigationView"
                 app:menu="@menu/menu_bottom_navigation" />
+
+            <ImageView
+                android:id="@+id/imgCSKH"
+                app:layout_constraintWidth_percent="0.12"
+                app:layout_constraintDimensionRatio="1:1"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_cskh"
+                android:layout_marginEnd="@dimen/dimen_40dp"
+                android:layout_marginBottom="@dimen/dimen_40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/bnv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

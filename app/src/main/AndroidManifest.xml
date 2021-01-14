@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".presentation.activity.FragmentActivity"/>
 
+        <activity android:name=".presentation.activity.IntroduceActivity"/>
+
         <activity
             android:screenOrientation="portrait"
             android:name=".presentation.activity.SphygmomanometerActivity"/>

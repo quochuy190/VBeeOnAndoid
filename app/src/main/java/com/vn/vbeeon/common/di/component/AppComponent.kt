@@ -6,13 +6,13 @@ import com.vn.vbeeon.common.di.module.LocalModule
 import com.vn.vbeeon.common.di.module.RemoteModule
 import com.vn.vbeeon.common.di.module.RepositoryModule
 import com.vn.vbeeon.common.di.module.ViewModelModule
-import com.vn.vbeeon.presentation.fragment.bottombar.DemoFragment
-import com.vn.vbeeon.presentation.fragment.bottombar.HomePageFragment
 import com.vn.vbeeon.presentation.fragment.MainFragment
-import com.vn.vbeeon.presentation.fragment.bottombar.ConvertDigitalPageFragment
+import com.vn.vbeeon.presentation.fragment.bottombar.*
 import com.vn.vbeeon.presentation.fragment.convertDigital.*
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceDetailFragment
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
+import com.vn.vbeeon.presentation.fragment.introduce.IntroduceFragment
+import com.vn.vbeeon.presentation.fragment.introduce.IntroduceInfoFragment
 import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
 import com.vn.vbeeon.presentation.fragment.user.AddUserFragment
 import com.vn.vbeeon.presentation.fragment.user.ListUserFragment
@@ -51,6 +51,8 @@ interface AppComponent {
     fun inject(fragment: DeviceDetailFragment)
     fun inject(fragment: AddUserFragment)
     fun inject(fragment: ListUserFragment)
+    fun inject(fragment: IntroduceFragment)
+    fun inject(fragment: IntroduceInfoFragment)
 
 //    @Component.Builder
 //    interface Builder {

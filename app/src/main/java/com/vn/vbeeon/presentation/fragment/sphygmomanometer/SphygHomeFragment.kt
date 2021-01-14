@@ -1,6 +1,7 @@
 package com.vn.vbeeon.presentation.fragment.sphygmomanometer
 
 import android.app.Activity
+import android.bluetooth.BluetoothDevice
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -17,6 +18,7 @@ import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.common.extensions.setTextHTML
 import com.vn.vbeeon.domain.model.Global
 import com.vn.vbeeon.domain.model.Global.sdkid_BPM
+import com.vn.vbeeon.domain.model.Global.sdkid_BT
 import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.fragment.user.ListUserFragment
@@ -25,9 +27,9 @@ import kotlinx.android.synthetic.main.fragment_sphyg_home.*
 
 
 @Suppress("DEPRECATION")
-class SphygHomeFragment : BaseFragment(), BPMProtocol.OnConnectStateListener {
+class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     //var protocol: BaseProtocol? = null
-    lateinit var bpmProtocol: BPMProtocol
+    lateinit var bpmProtocol: BaseProtocol
     lateinit var mainViewModel: SphygmomanometerViewModel
 
     override fun inject(appComponent: AppComponent) {
@@ -66,16 +68,16 @@ class SphygHomeFragment : BaseFragment(), BPMProtocol.OnConnectStateListener {
 
     private fun initParam() {
         //Initialize the connection SDK
-        bpmProtocol = BPMProtocol.getInstance(context as SphygmomanometerActivity, false, true, sdkid_BPM)
+        bpmProtocol = BaseProtocol.getInstance(context as SphygmomanometerActivity, false, true, sdkid_BT)
 
     }
 
     private fun startScan() {
-        if (bpmProtocol.isSupportBluetooth(context as SphygmomanometerActivity)) {
-
-            return
-        }
-        bpmProtocol.startScan(10)
+//        if (bpmProtocol.isSupportBluetooth(context as SphygmomanometerActivity)) {
+//
+//            return
+//        }
+//        bpmProtocol.startScan(10)
     }
 
     override fun getLayoutRes(): Int {
@@ -126,7 +128,12 @@ class SphygHomeFragment : BaseFragment(), BPMProtocol.OnConnectStateListener {
     }
 
 
-    override fun onScanResult(p0: String?, p1: String?, p2: Int) {
+
+    override fun onScanResult(p0: String?, p1: String?, p2: Int, p3: BaseProtocol.DeviceType?) {
+
+    }
+
+    override fun onScanResult(p0: BluetoothDevice?, p1: BaseProtocol.DeviceType?) {
 
     }
 
@@ -134,8 +141,10 @@ class SphygHomeFragment : BaseFragment(), BPMProtocol.OnConnectStateListener {
 
     }
 
-    override fun onConnectionState(p0: BPMProtocol.ConnectState?) {
+    override fun onConnectionState(p0: BaseProtocol.ConnectState?, p1: BaseProtocol.DeviceType?) {
+
     }
+
 
 //
 //    override fun onScanResult(

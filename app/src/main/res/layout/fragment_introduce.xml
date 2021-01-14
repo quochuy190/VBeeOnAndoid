@@ -48,7 +48,7 @@
         android:background="@drawable/shape_button_orange"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/btn_register"/>
+        android:text="@string/btn_start_introduce"/>
 
     <ImageView
         app:layout_constraintVertical_bias="0.3"

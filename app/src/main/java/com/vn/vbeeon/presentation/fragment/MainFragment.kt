@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
+import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.adapter.MainViewPagerAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
@@ -35,6 +36,9 @@ class MainFragment : BaseFragment() {
         pull_refesh.setOnRefreshListener {
            // refreshAction()                    // refresh your list contents somehow
             pull_refesh.isRefreshing = false   // reset the SwipeRefreshLayout (stop the loading spinner)
+        }
+        imgCSKH.setOnSafeClickListener {
+            (context as MainActivity).checkPermission()
         }
         initViewPager();
         bnv.setOnNavigationItemSelectedListener { item ->

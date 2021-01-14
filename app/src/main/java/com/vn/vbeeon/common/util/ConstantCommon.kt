@@ -8,6 +8,7 @@ object ConstantCommon {
     const val JSON_HTML_Government = "ChuyenDoiSoChoNhaNuoc.json"
     const val PREF_FILE_NAME = "com.vbeeon.app"
     const val IS_FIRST_OPEN_APP = "IS_FIRST_OPEN_APP"
+    const val USER_FULL_NAME = "USER_FULL_NAME"
     const val IS_FIRST_UPDATE_DEVICE = "IS_FIRST_UPDATE_DEVICE"
     const val TOKEN_FIREBASE = "TOKEN_FIREBASE"
     const val TOKEN_USER = "TOKEN_USER"
@@ -17,6 +18,8 @@ object ConstantCommon {
     const val KEY_WEBVIEW_HTML = "KEY_WEBVIEW_HTML"
     const val KEY_WEBVIEW_URL = "KEY_WEBVIEW_URL"
     const val KEY_OPEN_FRAGMENT_DEVICE = "KEY_OPEN_FRAGMENT_DEVICE"
+    const val KEY_OPEN_FRAGMENT_INTRODUCE = "KEY_OPEN_FRAGMENT_INTRODUCE"
+    const val KEY_OPEN_FRAGMENT_EDIT_INFO = "KEY_OPEN_FRAGMENT_EDIT_INFO"
     const val KEY_OPEN_FRAGMENT_USER = "KEY_OPEN_FRAGMENT_USER"
     const val KEY_SEND_CONVERT_DIGITAL_1 = 0
     const val KEY_SEND_CONVERT_DIGITAL_2 = 1

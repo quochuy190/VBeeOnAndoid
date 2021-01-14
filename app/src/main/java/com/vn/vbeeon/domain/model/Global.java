@@ -19,9 +19,9 @@ public class Global {
     public static ThermoProtocol thermoProtocol;
     public static EBodyProtocol eBodyProtocol;
     public static BPMProtocol bpmProtocol;
-    public static String sdkid_BPM = "";
+    public static String sdkid_BPM = "Vx^m4QUfEMmoRyzO";
     public static String sdkid_WEI = "";
-    public static String sdkid_BT = "";
+    public static String sdkid_BT = "Vx^m4QUfEMmoRyzO";
     public static String sdkid_WBP = "";
 
 }

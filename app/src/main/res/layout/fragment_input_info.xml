@@ -55,4 +55,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        app:layout_constraintWidth_percent="0.65"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="15dp"
+        android:id="@+id/btnContinue"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/shape_button_blue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_continue"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

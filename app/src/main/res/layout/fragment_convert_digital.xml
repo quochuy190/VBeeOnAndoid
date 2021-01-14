@@ -15,20 +15,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"/>
 
-    <ImageView
-        android:id="@+id/imgCSKH"
-        app:layout_constraintWidth_percent="0.12"
-        app:layout_constraintDimensionRatio="1:1"
-        android:scaleType="fitXY"
-        android:src="@drawable/btn_cskh"
-        android:layout_marginEnd="@dimen/dimen_30dp"
-        android:layout_marginBottom="@dimen/dimen_50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemBaseDigital"
             android:layout_marginTop="@dimen/dimen_20dp"

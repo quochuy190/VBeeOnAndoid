@@ -50,6 +50,8 @@
     <string name="tv_device_detail"><u>Xem chi tiết</u></string>
     <string name="tv_search_device"><u>Tìm kiếm thiết bị</u></string>
     <string name="btn_register">Đăng ký</string>
+    <string name="btn_start_introduce">Bắt đầu</string>
+    <string name="btn_continue">Bắt đầu</string>
 
     <string name="tab_sphy_data_saved"><u>Dữ liệu dã lưu</u></string>
     <string name="tab_sphy_data_live"><u>Dữ liệu máy đo</u></string>
@@ -62,6 +64,7 @@
     <string name="txt_blood_pressure_readings"><u>Chỉ số huyết áp</u></string>
     <string name="lbl_input_name">Nhập vào tên</string>
     <string name="hide_input_name">Nhập vào tên</string>
+    <string name="emtry_input_name">Nhập vào tên của bạn</string>
 
 
 </resources>

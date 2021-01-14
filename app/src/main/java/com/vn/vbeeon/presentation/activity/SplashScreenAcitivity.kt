@@ -39,12 +39,12 @@ class SplashScreenAcitivity : BaseActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      //  setContentView(R.layout.activity_splashscreen)
-//        if (checkPermissionApp(this)) {
-//            goToNextScreen()
-//        } else {
-//            showDialogPermission(this)
-//        }
+        setContentView(R.layout.activity_splashscreen)
+        if (checkPermissionApp(this)) {
+            goToNextScreen()
+        } else {
+            showDialogPermission(this)
+        }
         if (intent.extras != null) {
             try {
                 Timber.e("onCreate: " + intent.extras)
@@ -146,7 +146,7 @@ class SplashScreenAcitivity : BaseActivity(){
             if (isFirs) {
                 this.launchActivity<MainActivity>()
             } else {
-                this.launchActivity<MainActivity>()
+                this.launchActivity<IntroduceActivity>()
             }
             finish()
         }, 1000)

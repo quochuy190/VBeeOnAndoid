@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import butterknife.ButterKnife
@@ -12,6 +13,7 @@ import butterknife.Unbinder
 import com.vn.vbeeon.VBeeOnApplication
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.presentation.viewmodel.ViewModelFactory
+import com.vsm.ambientmode.utils.display.Toaster
 
 import timber.log.Timber
 import javax.inject.Inject
@@ -55,6 +57,10 @@ abstract class BaseFragment : Fragment() {
     private fun showProgressDialog(isShow: Boolean) {
         //TODO
     }
+
+    fun showMessage(message: String) = context?.let { Toaster.show(it, message) }
+
+    fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))
 
     protected fun handleStatusRequest(@Status status: Int?, swipeRefreshLayout: SwipeRefreshLayout? = null) {
         when (status) {
