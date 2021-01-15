@@ -34,7 +34,7 @@ fun Activity.openFragment(
     }
 }
 
-inline fun <reified T : Any> Activity.launchActivity(
+inline fun <reified T : Any> Activity.launchActivityForResult(
     requestCode: Int = -1,
     options: Bundle? = null,
     noinline init: Intent.() -> Unit = {}) {

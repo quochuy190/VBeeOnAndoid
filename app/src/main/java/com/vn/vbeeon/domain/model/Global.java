@@ -20,8 +20,8 @@ public class Global {
     public static EBodyProtocol eBodyProtocol;
     public static BPMProtocol bpmProtocol;
     public static String sdkid_BPM = "Vx^m4QUfEMmoRyzO";
-    public static String sdkid_WEI = "";
+    public static String sdkid_WEI = "Vx^m4QUfEMmoRyzO";
     public static String sdkid_BT = "Vx^m4QUfEMmoRyzO";
-    public static String sdkid_WBP = "";
+    public static String sdkid_WBP = "Vx^m4QUfEMmoRyzO";
 
 }

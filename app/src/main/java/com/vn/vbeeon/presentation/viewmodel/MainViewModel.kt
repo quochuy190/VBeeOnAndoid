@@ -33,4 +33,8 @@ class MainViewModel @Inject constructor() : BaseViewModel() {
     fun loadDevices(){
         devicesRes.postValue(convertFromEntityList(repoDevice.getAllListDevice()))
     }
+    fun deleteDevice(device: Device){
+        repoDevice.deleteDeviceById(device.id)
+        devicesRes.postValue(convertFromEntityList(repoDevice.getAllListDevice()))
+    }
 }

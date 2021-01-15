@@ -25,5 +25,5 @@
         android:enabled="true"
         android:title="@string/menu_chuyendoiso"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_control" />
+        android:icon="@drawable/ic_convert_it" />
 </menu>

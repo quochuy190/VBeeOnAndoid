@@ -120,6 +120,7 @@
 
     <!--    image view tablayout-->
     <ImageView
+        android:padding="@dimen/dimen_7dp"
         android:id="@+id/imgUserHomeSphyg"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -132,6 +133,7 @@
         app:layout_constraintWidth_percent="0.24" />
 
     <ImageView
+        android:padding="@dimen/dimen_5dp"
         android:id="@+id/imgGuildHomeSphyg"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -158,6 +160,7 @@
         app:tint="@color/textAppBar" />
 
     <ImageView
+        android:padding="@dimen/dimen_5dp"
         android:id="@+id/imgHistoryHomeSphyg"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -208,34 +211,7 @@
         app:layout_constraintStart_toStartOf="@+id/imgHistoryHomeSphyg"
         app:layout_constraintTop_toBottomOf="@+id/imgHistoryHomeSphyg" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
 
-        android:id="@+id/viewTimeClock"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.9">
-
-        <TextView
-            style="@style/TextTimeSphyg"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/bgr_tv_time_clock"
-            android:text="09:00"
-            android:textColor="@color/tvTimeClock"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.22"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/llTabLayout"
@@ -322,6 +298,7 @@
 
     <!--    image view tablayout-->
     <ImageView
+        android:padding="@dimen/dimen_5dp"
         android:id="@+id/imgScanDevice"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -334,6 +311,7 @@
         app:layout_constraintWidth_percent="0.24" />
 
     <ImageView
+        android:padding="@dimen/dimen_5dp"
         android:id="@+id/imgSaveData"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -347,6 +325,7 @@
         app:tint="@color/textAppBar" />
 
     <ImageView
+        android:padding="@dimen/dimen_5dp"
         android:id="@+id/imgSaveAll"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -360,6 +339,7 @@
         app:tint="@color/textAppBar" />
 
     <ImageView
+        android:padding="@dimen/dimen_5dp"
         android:id="@+id/imgDeleteData"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -458,7 +438,6 @@
         android:id="@+id/tvNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txt_uong_thuoc"
         app:layout_constraintBottom_toTopOf="@+id/imgSaveData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -486,7 +465,7 @@
         android:id="@+id/tvVlueBlood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txt_uong_thuoc"
+
         app:layout_constraintBottom_toTopOf="@+id/imgSaveData"
         app:layout_constraintEnd_toStartOf="@id/imgAvataUser"
         app:layout_constraintHorizontal_bias="0.4"
@@ -506,5 +485,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.1"
         app:tint="@color/textAppBar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/viewTimeClock"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+
+        <TextView
+            android:id="@+id/tvHoursMinute"
+            style="@style/TextTimeSphyg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bgr_tv_time_clock"
+            android:text="09:00"
+            android:textColor="@color/tvTimeClock"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

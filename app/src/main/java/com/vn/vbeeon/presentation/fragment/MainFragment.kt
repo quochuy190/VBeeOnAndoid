@@ -10,6 +10,7 @@ import com.vn.vbeeon.presentation.adapter.MainViewPagerAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.fragment.bottombar.HomePageFragment
 import com.vn.vbeeon.presentation.fragment.bottombar.ConvertDigitalPageFragment
+import com.vn.vbeeon.presentation.fragment.bottombar.DemoFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -72,8 +73,8 @@ class MainFragment : BaseFragment() {
         val adapter = MainViewPagerAdapter(childFragmentManager)
         adapter.addFragment(HomePageFragment(), "")
         adapter.addFragment(HomePageFragment(), "")
-        adapter.addFragment(HomePageFragment(), "")
-        adapter.addFragment(HomePageFragment(), "")
+        adapter.addFragment(DemoFragment(), "")
+        adapter.addFragment(DemoFragment(), "")
         adapter.addFragment(ConvertDigitalPageFragment(), "")
 
         vp_main.adapter = adapter

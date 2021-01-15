@@ -3,9 +3,14 @@ package com.vn.vbeeon.utils
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.AssetManager
+import android.os.Build
 import com.vn.vbeeon.R
 import com.vn.vbeeon.VBeeOnApplication
 import io.reactivex.Scheduler
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 object AppUtils {
     fun AssetManager.readFile(fileName: String) = open(fileName)
@@ -48,5 +53,31 @@ object AppUtils {
 
     fun myApp(): VBeeOnApplication {
         return context.applicationContext as VBeeOnApplication
+    }
+
+    fun currentTime():String{
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val current = LocalDateTime.now()
+            val formatter = DateTimeFormatter.ofPattern("HH:mm")
+            var answer: String =  current.format(formatter)
+            return answer
+        } else {
+            var date = Date()
+            val formatter = SimpleDateFormat("HH:mm")
+            val answer: String = formatter.format(date)
+            return answer
+        }
+    }
+    fun getSecone():Int{
+        val c = Calendar.getInstance()
+
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
+        val second = c.get(Calendar.SECOND)
+        return second
     }
 }

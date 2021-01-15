@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             R.id.nav_shop -> {
                 launchActivity<FragmentActivity>{
                     putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP)
+                    putExtra(ConstantCommon.KEY_WEBVIEW_URL, "https://vbeeon.com")
                 }
             }
             R.id.nav_intro -> {
@@ -145,5 +146,12 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     fun callPhone(){
         val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0823830506"))
         startActivity(intent)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        for (fragment in supportFragmentManager.fragments) {
+            fragment.onActivityResult(requestCode, resultCode, data)
+        }
     }
 }

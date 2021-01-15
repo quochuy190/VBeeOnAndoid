@@ -1,29 +1,28 @@
 package com.vn.vbeeon.presentation.fragment.sphygmomanometer
 
-import android.app.Activity
 import android.bluetooth.BluetoothDevice
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 import androidx.lifecycle.ViewModelProviders
-import com.ideabus.model.protocol.BPMProtocol
 import com.ideabus.model.protocol.BaseProtocol
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.common.extensions.setTextHTML
-import com.vn.vbeeon.domain.model.Global
-import com.vn.vbeeon.domain.model.Global.sdkid_BPM
 import com.vn.vbeeon.domain.model.Global.sdkid_BT
 import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.fragment.user.ListUserFragment
 import com.vn.vbeeon.presentation.viewmodel.SphygmomanometerViewModel
+import com.vn.vbeeon.utils.AppUtils.currentTime
+import com.vn.vbeeon.utils.AppUtils.getSecone
 import kotlinx.android.synthetic.main.fragment_sphyg_home.*
+import kotlinx.android.synthetic.main.toolbar_main.*
+import timber.log.Timber
 
 
 @Suppress("DEPRECATION")
@@ -42,6 +41,12 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
         initParam()
     }
 
+    private fun initParam() {
+        //Initialize the connection SDK
+        bpmProtocol = BaseProtocol.getInstance(activity, false, true, sdkid_BT)
+
+    }
+
     override fun onStart() {
         super.onStart()
         bpmProtocol.setOnConnectStateListener(this)
@@ -53,31 +58,32 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
 
     override fun onStop() {
         super.onStop()
-        Global.bpmProtocol.disconnect()
-        Global.bpmProtocol.stopScan()
+        Timber.e("onStop")
+
     }
+
     override fun onDestroy() {
         super.onDestroy()
-        if (Global.bpmProtocol.isConnected) Global.bpmProtocol.disconnect()
-        Global.bpmProtocol.stopScan()
+        stop = true
+        handler.removeCallbacksAndMessages(runnable);
+        Timber.e("onDestroy")
+//        bpmProtocol.stopScan(BaseProtocol.DeviceType.DEVICE_TYPE_ALL)
+//        bpmProtocol.disconnect(BaseProtocol.DeviceType.DEVICE_TYPE_ALL)
+//        bpmProtocol.disconnectBPM()
+
     }
+
     override fun onResume() {
         super.onResume()
 
     }
 
-    private fun initParam() {
-        //Initialize the connection SDK
-        bpmProtocol = BaseProtocol.getInstance(context as SphygmomanometerActivity, false, true, sdkid_BT)
-
-    }
 
     private fun startScan() {
-//        if (bpmProtocol.isSupportBluetooth(context as SphygmomanometerActivity)) {
-//
-//            return
-//        }
-//        bpmProtocol.startScan(10)
+        if (!bpmProtocol.isSupportBluetooth(BaseProtocol.DeviceType.DEVICE_TYPE_ALL)) {
+            return
+        }
+        bpmProtocol.startScan(10, BaseProtocol.DeviceType.DEVICE_TYPE_ALL)
     }
 
     override fun getLayoutRes(): Int {
@@ -85,6 +91,11 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     }
 
     override fun initView() {
+        imgBack.setOnSafeClickListener {
+            Timber.e("ib_toolbar_close.setOnSafeClickListener")
+            activity?.onBackPressed()
+        }
+        tv_toolbar_title.text = "HUYẾT ÁP"
         checkActivity()
         val sysTitle = "SYS<font color='#3497FD'><br>mmHg</font>"
         tv_sys_title.text = setTextHTML(sysTitle)
@@ -107,172 +118,50 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     override fun observable() {
 
     }
-
-    var handler: Handler? = null
+    var stop = false
+    lateinit var handler: Handler
+    var  second=0
+    var from =0
     fun checkActivity() {
         handler = Handler()
-        handler!!.postDelayed(runnable, 0)
+        handler.postDelayed(runnable, 0)
     }
 
     var runnable: Runnable = object : Runnable {
         override fun run() {
-            val rotate = RotateAnimation(
-                0F, 360F, Animation.RELATIVE_TO_SELF,
-                0.5f, Animation.RELATIVE_TO_SELF, 0.5f
-            )
-            rotate.duration = 1000 * 60.toLong()
-            rotate.interpolator = LinearInterpolator()
-            viewTimeClock.startAnimation(rotate)
-            handler!!.postDelayed(this, 1000 * 60.toLong())
+            Timber.e("log handler " + stop)
+            if (!stop) {
+                var second = getSecone()
+                Timber.e("log handler " + second)
+                tvHoursMinute.text = currentTime()
+                val rotate = RotateAnimation(
+                    (second*6).toFloat(), (second*6).toFloat(), Animation.RELATIVE_TO_SELF,
+                    0.5f, Animation.RELATIVE_TO_SELF, 0.5f
+                )
+                rotate.duration = 1000*60
+                rotate.interpolator = LinearInterpolator()
+                viewTimeClock.startAnimation(rotate)
+                handler.postDelayed(this, 1000)
+            }
         }
     }
 
 
-
     override fun onScanResult(p0: String?, p1: String?, p2: Int, p3: BaseProtocol.DeviceType?) {
-
+        Timber.e("log onScanResult" + p0 + p1 + p2 + p3)
     }
 
     override fun onScanResult(p0: BluetoothDevice?, p1: BaseProtocol.DeviceType?) {
-
+        Timber.e("log onScanResult" + p0)
     }
 
     override fun onBtStateChanged(p0: Boolean) {
-
+        Timber.e("log onBtStateChanged" + p0)
     }
 
     override fun onConnectionState(p0: BaseProtocol.ConnectState?, p1: BaseProtocol.DeviceType?) {
-
+        Timber.e("log onConnectionState" + p0)
     }
-
-
-//
-//    override fun onScanResult(
-//        mac: String?,
-//        name: String?,
-//        rssi: Int,
-//        deviceType: BaseProtocol.DeviceType?
-//    ) {
-//        Timber.d("onScanResult name = $name")
-//
-//        if (deviceType == BaseProtocol.DeviceType.DEVICE_TYPE_THERMO) {
-//            Global.protocol.stopScan(BaseProtocol.DeviceType.DEVICE_TYPE_THERMO)
-//            //Connection
-//            Global.protocol.connect(mac, BaseProtocol.DeviceType.DEVICE_TYPE_THERMO)
-//        }
-//
-//        if (deviceType == BaseProtocol.DeviceType.DEVICE_TYPE_BPM) {
-//            //Stop scanning before connecting
-//            Global.protocol.stopScan(BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
-//            //Connection
-//            if (name!!.startsWith("A")) {
-//                Global.protocol.connect(mac, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
-//            } else {
-//                Global.protocol.bond(mac, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
-//            }
-//        }
-//    }
-//
-//    override fun onScanResult(device: BluetoothDevice?, deviceType: BaseProtocol.DeviceType?) {
-////When scanning BLE, it will be sent back, and then added to the list.
-//        Global.protocol.stopScan(BaseProtocol.DeviceType.DEVICE_TYPE_EBODY)
-//        //Connection
-//        //Connection
-//        Global.protocol.connect(device, BaseProtocol.DeviceType.DEVICE_TYPE_EBODY)
-//    }
-//
-//    override fun onBtStateChanged(isEnable: Boolean) {
-//        if (isEnable) {
-//            startScan()
-//        } else {
-//
-//        }
-//    }
-//
-//    override fun onConnectionState(state: BaseProtocol.ConnectState?, deviceType: BaseProtocol.DeviceType?) {
-//        when (state) {
-//            BaseProtocol.ConnectState.Connected -> Timber.d("connect")
-//
-//            BaseProtocol.ConnectState.ConnectTimeout, BaseProtocol.ConnectState.Disconnect -> {
-//                //statusText.setText(deviceType.toString() + "：斷線")
-//                startScan()
-//            }
-//            BaseProtocol.ConnectState.ScanFinish -> {
-//                //statusText.setText(deviceType.toString() + "：結束")
-//                startScan()
-//            }
-//            BaseProtocol.ConnectState.ScaleSleep -> {
-//               // statusText.setText(deviceType.toString() + "：睡眠")
-//                startScan()
-//            }
-//            BaseProtocol.ConnectState.ScaleWake -> {
-//               // statusText.setText(deviceType.toString() + "：啟動")
-//                //sendUserInfoToScale()
-//            }
-//        }
-//    }
-//
-//    override fun onResponseClearLastData(p0: Boolean) {
-//
-//    }
-//
-//    override fun onResponseReadHistory(p0: DRecord?) {
-//
-//    }
-//
-//    override fun onDeleteAllUsersSuccess() {
-//
-//    }
-//
-//    override fun onResponseDeviceInfo(p0: String?, p1: Int, p2: Float) {
-//
-//    }
-//
-//    override fun onResponseWriteUser(p0: Boolean) {
-//
-//    }
-//
-//    override fun onResponseReadLastData(
-//        p0: CurrentAndMData?,
-//        p1: Int,
-//        p2: Int,
-//        p3: Int,
-//        p4: Boolean
-//    ) {
-//
-//    }
-//
-//    override fun onResponseReadDeviceTime(p0: DeviceInfo?) {
-//
-//    }
-//
-//    override fun onResponseReadUserAndVersionData(p0: User?, p1: VersionData?) {
-//
-//    }
-//
-//    override fun onResponseClearHistory(p0: Boolean) {
-//
-//    }
-//
-//    override fun onResponseReadDeviceInfo(p0: DeviceInfo?) {
-//
-//    }
-//
-//    override fun onResponseUploadMeasureData(p0: ThermoMeasureData?) {
-//
-//    }
-//
-//    override fun onResponseWriteDeviceTime(p0: Boolean) {
-//
-//    }
-//
-//    override fun onUserInfoUpdateSuccess() {
-//
-//    }
-//
-//    override fun onResponseMeasureResult2(p0: EBodyMeasureData?, p1: Float) {
-//
-//    }
 
 
 }

@@ -1,7 +1,6 @@
 package com.vn.vbeeon.presentation.fragment.deviceAddNew
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
@@ -10,6 +9,7 @@ import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
+import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.adapter.deviceAddNew.DeviceAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.fragment.convertDigital.WebViewFragment
@@ -48,15 +48,20 @@ class DeviceListNewFragment : BaseFragment() {
         }
         tv_toolbar_title.text = "DANH SÁCH THIẾT BỊ"
         adapterDevice = DeviceAdapter(doneClick = {
-            (context as FragmentActivity).openFragment(DeviceDetailFragment.newInstance(it), true)
+            (context as DeviceAddNewActivity).openFragment(DeviceDetailFragment.newInstance(it), true)
         }, onClickDetail = {
-            (context as FragmentActivity).openFragment(WebViewFragment.newInstance(it.titelDetail,
-                ConstantCommon.KEY_WEBVIEW_URL), true)
+//            (context as FragmentActivity).openFragment(WebViewFragment.newInstance(it.titelDetail,
+//                ConstantCommon.KEY_WEBVIEW_URL), true)
+            (context as DeviceAddNewActivity).launchActivity<FragmentActivity>{
+                putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP)
+                putExtra(ConstantCommon.KEY_WEBVIEW_URL, it.titelDetail)
+            }
         })
         rvDeviceNew.apply { adapter = adapterDevice }
         txt_link.setOnSafeClickListener {
-            context?.launchActivity<com.vn.vbeeon.presentation.activity.FragmentActivity>{
+            context?.launchActivity<FragmentActivity>{
                 putExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP)
+                putExtra(ConstantCommon.KEY_WEBVIEW_URL, "https://vbeeon.com")
             }
         }
     }
