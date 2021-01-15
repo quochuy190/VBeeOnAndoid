@@ -12,6 +12,7 @@ import com.vn.vbeeon.presentation.activity.ConnectionActivity
 import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
 import com.vn.vbeeon.presentation.activity.FragmentActivity
 import com.vn.vbeeon.presentation.activity.MainActivity
+import com.vn.vbeeon.presentation.adapter.deviceHome.DeviceLocalAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
 import com.vsm.ambientmode.ui.timer.DeviceHomeAdapter
@@ -23,7 +24,7 @@ import vn.neo.smsvietlott.common.di.util.ConstantCommon
 @Suppress("DEPRECATION")
 class HomePageFragment : BaseFragment() {
     lateinit var mainViewModel: MainViewModel
-    private lateinit var mAdapter: DeviceHomeAdapter
+    private lateinit var mAdapter: DeviceLocalAdapter
     override fun inject(appComponent: AppComponent) {
         appComponent.inject(this)
     }
@@ -46,14 +47,16 @@ class HomePageFragment : BaseFragment() {
                 )
             }
         }
-        mAdapter = DeviceHomeAdapter(onClick = { position, item ->
+        mAdapter = DeviceLocalAdapter(itemClick = { it ->
             context?.launchActivity<ConnectionActivity>() {
                 putExtra(
                     ConstantCommon.KEY_SEND_OPTION_FRAGMENT, ConstantCommon.KEY_OPEN_FRAGMENT_DEVICE
                 )
             }
-        }, onClickDelete = {
-            Timber.d("")
+        }, deleteClick = {
+            Timber.d(""+it.categoryName)
+        }, onClickDetail = {
+            Timber.d(""+it.categoryName)
         })
         rvListDevice.apply { adapter = mAdapter }
         txt_link.setOnSafeClickListener {
