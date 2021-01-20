@@ -11,6 +11,7 @@ import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.UserViewModel
 import com.vn.vbeeon.utils.AppUtils
+import com.vn.vbeeon.utils.AppUtils.getAgefromBirthday
 import kotlinx.android.synthetic.main.fragment_add_user.btnRegister
 import kotlinx.android.synthetic.main.fragment_register_user.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -73,7 +74,8 @@ class AddUserFragment : BaseFragment() {
             } else if (famale.isChecked)
                 sex = 1
             if (validateEdt()){
-                mViewModel.saveUser(User(0, edtFullName.text.toString(), 0, edtBirthday.text.toString(), sex))
+                mViewModel.saveUser(User(0, edtFullName.text.toString(), 0, edtBirthday.text.toString(), sex,
+                    getAgefromBirthday(edtBirthday.text.toString())))
                 showMessage(R.string.register_success)
                 activity?.onBackPressed()
             }

@@ -6,7 +6,9 @@ import android.content.res.AssetManager
 import android.os.Build
 import com.vn.vbeeon.R
 import com.vn.vbeeon.VBeeOnApplication
+import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -87,5 +89,21 @@ object AppUtils {
             return true
         }
         return false
+    }
+    fun getAgefromBirthday( dateString : String):Int{
+//        val dateFormat = "dd/MM/yyyy"
+//        val dtf = DateTimeFormatter.ofPattern(dateFormat)
+        try {
+            val format =
+                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+            val d = format.parse(dateString)
+            val year = d.year
+            val c = Calendar.getInstance()
+            val yearCurent = c.get(Calendar.YEAR)
+            return yearCurent-year
+        } catch (e: ParseException) {
+            e.printStackTrace()
+            return 0
+        }
     }
 }

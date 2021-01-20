@@ -11,25 +11,24 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/bgr_item_html"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dimen_05dp"
+        android:background="@drawable/bgr_item_html"
         android:padding="@dimen/dimen_10dp">
 
         <ImageView
+            android:id="@+id/imgAvata"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:padding="@dimen/dimen_7dp"
             android:src="@drawable/avatar_default"
-            android:id="@+id/imgAvata"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent="0.2"
             app:layout_constraintDimensionRatio="1:1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.17" />
 
         <TextView
-            android:textColor="@color/white"
             android:id="@+id/lableUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,13 +38,14 @@
             android:maxLines="2"
             android:padding="@dimen/dimen_5dp"
             android:text="Tên: "
+            android:textColor="@color/white"
             android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/lableAge"
             app:layout_constraintStart_toEndOf="@+id/imgAvata"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Gio va Thoi tiet" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:textColor="@color/white"
+
             android:id="@+id/tvUserName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,11 +55,46 @@
             android:maxLines="2"
             android:padding="@dimen/dimen_5dp"
             android:text="@{data.name}"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lableUser"
+            app:layout_constraintTop_toTopOf="@id/lableUser"
             tools:text="Gio va Thoi tiet" />
+
+        <TextView
+            android:id="@+id/lableAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLines="2"
+            android:padding="@dimen/dimen_5dp"
+            android:text="Tuổi: "
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgAvata"
+            app:layout_constraintTop_toBottomOf="@+id/lableUser" />
+
+        <TextView
+
+            android:id="@+id/tvAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLines="2"
+            android:padding="@dimen/dimen_5dp"
+            android:text="@{Integer.toString(data.age)}"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/lableAge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lableAge"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

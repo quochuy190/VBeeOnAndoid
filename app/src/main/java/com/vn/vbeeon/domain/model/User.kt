@@ -19,20 +19,21 @@ data class User(
     val name: String,
     @DrawableRes val resId: Int = 0,
     val birthDay: String,
-    val sex: Int //0: male, 1: female
+    val sex: Int,
+    val age: Int//0: male, 1: female
 )
 
 fun convertUserFromListEntity(userEntity: List<UserEntity>):List<User>{
     var listUser : MutableList<User> = mutableListOf()
     userEntity.forEach {
-        listUser.add(User(it.id, it.name, 0, it.birthDay, it.sex))
+        listUser.add(User(it.id, it.name, 0, it.birthDay, it.sex, it.age))
     }
     return listUser
 }
 fun convertUserFromEntityObj(it: UserEntity) : User{
 
-    return User(it.id, it.name, 0, it.birthDay, it.sex)
+    return User(it.id, it.name, 0, it.birthDay, it.sex, it.age)
 }
 fun convertToEntityObj(user: User) : UserEntity{
-    return UserEntity(user.id, user.name, user.birthDay, user.sex)
+    return UserEntity(user.id, user.name, user.birthDay, user.sex, user.age)
 }
