@@ -19,5 +19,7 @@ data class UserEntity(
     @ColumnInfo(name = "user_name")
     val name: String,
     @ColumnInfo(name = "user_birthday")
-    val birthDay : String
+    val birthDay : String,
+    @ColumnInfo(name = "sex")
+    val sex: Int //0: male, 1: female
 )

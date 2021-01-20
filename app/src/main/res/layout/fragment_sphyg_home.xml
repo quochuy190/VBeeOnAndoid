@@ -418,7 +418,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:padding="@dimen/dimen_5dp"
-        android:src="@drawable/icon_person"
+        android:src="@drawable/avatar_default"
         app:civ_border_color="@color/grey_20"
         app:civ_border_width="@dimen/dimen_1dp"
         android:id="@+id/imgAvataUser"

@@ -11,10 +11,7 @@ import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.launchActivity
 import com.vn.vbeeon.common.extensions.launchActivityForResult
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
-import com.vn.vbeeon.presentation.activity.DeviceAddNewActivity
-import com.vn.vbeeon.presentation.activity.FragmentActivity
-import com.vn.vbeeon.presentation.activity.MainActivity
-import com.vn.vbeeon.presentation.activity.SphygmomanometerActivity
+import com.vn.vbeeon.presentation.activity.*
 import com.vn.vbeeon.presentation.adapter.deviceHome.DeviceLocalAdapter
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel

@@ -6,7 +6,6 @@ import android.content.res.AssetManager
 import android.os.Build
 import com.vn.vbeeon.R
 import com.vn.vbeeon.VBeeOnApplication
-import io.reactivex.Scheduler
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -79,5 +78,14 @@ object AppUtils {
         val minute = c.get(Calendar.MINUTE)
         val second = c.get(Calendar.SECOND)
         return second
+    }
+
+    fun checkCurrentDateTime(valid_until: String):Boolean{
+        val sdf = SimpleDateFormat("dd/MM/yyyy")
+        val strDate = sdf.parse(valid_until)
+        if (Date().after(strDate)) {
+            return true
+        }
+        return false
     }
 }

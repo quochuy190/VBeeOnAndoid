@@ -33,6 +33,7 @@ class UserViewModel @Inject constructor() : BaseViewModel() {
     }
     fun saveUser(user: User){
         repo.createUserTest(convertToEntityObj(user))
+        listUserRes.postValue(convertUserFromListEntity(repo.getAllListUser()))
     }
 
 }

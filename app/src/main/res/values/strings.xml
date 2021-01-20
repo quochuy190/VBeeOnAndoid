@@ -63,8 +63,13 @@
     <string name="txt_uong_thuoc"><u>Uống thuốc</u></string>
     <string name="txt_blood_pressure_readings"><u>Chỉ số huyết áp</u></string>
     <string name="lbl_input_name">Nhập vào tên</string>
-    <string name="hide_input_name">Nhập vào tên</string>
+    <string name="hide_input_name">Tên người dùng</string>
     <string name="emtry_input_name">Nhập vào tên của bạn</string>
+    <string name="emtry_input_birthday">Nhập vào ngày sinh của bạn</string>
+    <string name="input_birthday_error">Ngày sinh không hợp lệ</string>
+    <string name="hide_birthday">Ngày sinh</string>
+    <string name="lable_sex">Giới tính</string>
+    <string name="register_success">Đăng ký tài khoản thành công</string>
 
 
 </resources>

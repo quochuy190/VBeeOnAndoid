@@ -64,7 +64,6 @@ class ListUserFragment : BaseFragment() {
                 UserViewModel::class.java
             )
         }!!
-        mViewModel.getListUser()
     }
 
     override fun observable() {
@@ -73,5 +72,9 @@ class ListUserFragment : BaseFragment() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        mViewModel.getListUser()
+    }
 
 }

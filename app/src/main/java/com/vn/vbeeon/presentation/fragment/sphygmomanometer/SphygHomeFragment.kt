@@ -1,6 +1,8 @@
 package com.vn.vbeeon.presentation.fragment.sphygmomanometer
 
+import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.Animation
@@ -30,7 +32,9 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     //var protocol: BaseProtocol? = null
     lateinit var bpmProtocol: BaseProtocol
     lateinit var mainViewModel: SphygmomanometerViewModel
-
+    private var myBluetooth: BluetoothAdapter? = null
+    val Request_Enable_Blutooth=1
+    val mac : String = "0000fff1-0000-1000-8000-00805f9b34fb"
     override fun inject(appComponent: AppComponent) {
         appComponent.inject(this)
     }
@@ -43,6 +47,14 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
 
     private fun initParam() {
         //Initialize the connection SDK
+        myBluetooth = BluetoothAdapter.getDefaultAdapter()
+        if (myBluetooth == null) {
+        }
+        if (!myBluetooth!!.isEnabled) {
+            val enableBlutoothIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            startActivityForResult(enableBlutoothIntent, Request_Enable_Blutooth)
+        }
+
         bpmProtocol = BaseProtocol.getInstance(activity, false, true, sdkid_BT)
 
     }
@@ -80,10 +92,11 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
 
 
     private fun startScan() {
-        if (!bpmProtocol.isSupportBluetooth(BaseProtocol.DeviceType.DEVICE_TYPE_ALL)) {
+        if (!bpmProtocol.isSupportBluetooth(BaseProtocol.DeviceType.DEVICE_TYPE_BPM)) {
             return
         }
-        bpmProtocol.startScan(10, BaseProtocol.DeviceType.DEVICE_TYPE_ALL)
+        bpmProtocol.startScan(10, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
+        bpmProtocol.connect(mac, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
     }
 
     override fun getLayoutRes(): Int {
@@ -118,10 +131,11 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     override fun observable() {
 
     }
+
     var stop = false
     lateinit var handler: Handler
-    var  second=0
-    var from =0
+    var second = 0
+    var from = 0
     fun checkActivity() {
         handler = Handler()
         handler.postDelayed(runnable, 0)
@@ -129,16 +143,14 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
 
     var runnable: Runnable = object : Runnable {
         override fun run() {
-            Timber.e("log handler " + stop)
             if (!stop) {
                 var second = getSecone()
-                Timber.e("log handler " + second)
                 tvHoursMinute.text = currentTime()
                 val rotate = RotateAnimation(
-                    (second*6).toFloat(), (second*6).toFloat(), Animation.RELATIVE_TO_SELF,
+                    (second * 6).toFloat(), (second * 6).toFloat(), Animation.RELATIVE_TO_SELF,
                     0.5f, Animation.RELATIVE_TO_SELF, 0.5f
                 )
-                rotate.duration = 1000*60
+                rotate.duration = 1000 * 60
                 rotate.interpolator = LinearInterpolator()
                 viewTimeClock.startAnimation(rotate)
                 handler.postDelayed(this, 1000)

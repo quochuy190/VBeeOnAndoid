@@ -27,7 +27,7 @@ class DeviceAddNewActivity : BaseActivity() {
         when (option){
             ConstantCommon.KEY_OPEN_FRAGMENT_DEVICE -> openFragment(DeviceListNewFragment(), false)
             ConstantCommon.KEY_OPEN_FRAGMENT_USER -> openFragment(AddUserFragment(), false)
-          //  ConstantCommon.KEY_OPEN_FRAGMENT_SPHYG -> openFragment(SphygHomeFragment(), false)
+            //ConstantCommon.KEY_OPEN_FRAGMENT_SPHYG -> openFragment(SphygHomeFragment(), false)
         }
 
 
