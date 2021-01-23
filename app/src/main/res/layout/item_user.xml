@@ -21,7 +21,7 @@
             android:id="@+id/imgAvata"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:padding="@dimen/dimen_7dp"
+            android:padding="@dimen/dimen_2dp"
             android:src="@drawable/avatar_default"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
             android:ellipsize="end"
             android:gravity="left"
             android:maxLines="2"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_1dp"
             android:text="Tên: "
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -53,7 +53,7 @@
             android:ellipsize="end"
             android:gravity="left"
             android:maxLines="2"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_1dp"
             android:text="@{data.name}"
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -70,7 +70,7 @@
             android:ellipsize="end"
             android:gravity="left"
             android:maxLines="2"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_1dp"
             android:text="Tuổi: "
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -79,7 +79,6 @@
             app:layout_constraintTop_toBottomOf="@+id/lableUser" />
 
         <TextView
-
             android:id="@+id/tvAge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -87,14 +86,14 @@
             android:ellipsize="end"
             android:gravity="left"
             android:maxLines="2"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_1dp"
             android:text="@{Integer.toString(data.age)}"
             android:textColor="@color/white"
             android:textSize="15sp"
+            app:layout_constraintTop_toTopOf="@+id/lableAge"
             app:layout_constraintBottom_toBottomOf="@id/lableAge"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/lableAge"
-            />
+            app:layout_constraintStart_toEndOf="@+id/lableAge" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

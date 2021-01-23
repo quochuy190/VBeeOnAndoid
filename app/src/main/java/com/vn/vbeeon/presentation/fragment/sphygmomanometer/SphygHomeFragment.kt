@@ -1,8 +1,9 @@
 package com.vn.vbeeon.presentation.fragment.sphygmomanometer
 
+import android.app.AlertDialog
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
-import android.content.Intent
+import android.content.*
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.Animation
@@ -26,7 +27,6 @@ import kotlinx.android.synthetic.main.fragment_sphyg_home.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 import timber.log.Timber
 
-
 @Suppress("DEPRECATION")
 class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     //var protocol: BaseProtocol? = null
@@ -38,10 +38,28 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     override fun inject(appComponent: AppComponent) {
         appComponent.inject(this)
     }
-
+    var BTAdapter = BluetoothAdapter.getDefaultAdapter()
+    var REQUEST_BLUETOOTH = 1005
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        if (BTAdapter == null) {
+            AlertDialog.Builder(activity)
+                .setTitle("Not compatible")
+                .setMessage("Your phone does not support Bluetooth")
+                .setPositiveButton("Exit",
+                    DialogInterface.OnClickListener { dialog, which -> System.exit(0) })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show()
+        }
+        if (!BTAdapter.isEnabled) {
+            val enableBT = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            startActivityForResult(enableBT, REQUEST_BLUETOOTH)
+        }
+        val filter = IntentFilter(BluetoothDevice.ACTION_FOUND)
+        activity?.registerReceiver(bReciever, filter);
+        BTAdapter.startDiscovery();
+        Timber.e("startDiscovery ")
         initParam()
     }
 
@@ -54,9 +72,24 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
             val enableBlutoothIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
             startActivityForResult(enableBlutoothIntent, Request_Enable_Blutooth)
         }
-
         bpmProtocol = BaseProtocol.getInstance(activity, false, true, sdkid_BT)
 
+    }
+
+    private val bReciever: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            val action = intent.action
+            if (BluetoothDevice.ACTION_FOUND == action) {
+                val device =
+                    intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
+                // Create a new device item
+//                val newDevice =
+//                    DeviceItem(device!!.name, device!!.address, "false")
+//                // Add it to our adapter
+//                mAdapter.add(newDevice)
+                Timber.e(""+device!!.name+", "+device!!.address)
+            }
+        }
     }
 
     override fun onStart() {
@@ -65,13 +98,14 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
         // Global.protocol.setOnDataResponseListener(this)
         // Global.protocol.setOnNotifyStateListener(this)
         //  Global.protocol.setOnWriteStateListener(this)
-        startScan()
+      //  startScan()
     }
 
     override fun onStop() {
         super.onStop()
         Timber.e("onStop")
-
+        getActivity()?.unregisterReceiver(bReciever);
+        BTAdapter.cancelDiscovery();
     }
 
     override fun onDestroy() {
@@ -95,8 +129,8 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
         if (!bpmProtocol.isSupportBluetooth(BaseProtocol.DeviceType.DEVICE_TYPE_BPM)) {
             return
         }
-        bpmProtocol.startScan(10, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
-        bpmProtocol.connect(mac, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
+        bpmProtocol.startScan(5, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
+        //bpmProtocol.connect(mac, BaseProtocol.DeviceType.DEVICE_TYPE_BPM)
     }
 
     override fun getLayoutRes(): Int {
@@ -174,6 +208,7 @@ class SphygHomeFragment : BaseFragment(), BaseProtocol.OnConnectStateListener {
     override fun onConnectionState(p0: BaseProtocol.ConnectState?, p1: BaseProtocol.DeviceType?) {
         Timber.e("log onConnectionState" + p0)
     }
+
 
 
 }
