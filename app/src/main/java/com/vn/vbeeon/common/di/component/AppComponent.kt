@@ -25,7 +25,7 @@ import javax.inject.Singleton
     modules = [RemoteModule::class,
         ViewModelModule::class,
         LocalModule::class,
-        RepositoryModule::class,
+        RepositoryModule::class
     ]
 )
 interface AppComponent {

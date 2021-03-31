@@ -25,8 +25,8 @@ class FragmentActivity : BaseActivity() {
     override fun setupView(savedInstanceState: Bundle?) {
         val option = intent.getIntExtra(ConstantCommon.KEY_SEND_OPTION_FRAGMENT, 0)
         val url = intent.getStringExtra(ConstantCommon.KEY_WEBVIEW_URL)
-        Timber.d("ConvertDigitalActivity "+option)
-        when (option){
+        Timber.d("ConvertDigitalActivity " + option)
+        when (option) {
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_1 ->
                 openFragment(ConvertDigitalDetailFragment(), false)
             ConstantCommon.KEY_SEND_CONVERT_DIGITAL_2 ->
@@ -37,24 +37,27 @@ class FragmentActivity : BaseActivity() {
                 openFragment(
                     WebViewFragment.newInstance(
                         "https://vbeeon.com", ConstantCommon.KEY_WEBVIEW_URL
-                    ), false)
-            ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP ->{
-                if (url!=null&&url.length>0){
+                    ), false
+                )
+            ConstantCommon.KEY_SEND_WEBVIEW_VBEEON_SP -> {
+                if (url != null && url.length > 0) {
                     openFragment(
                         WebViewFragment.newInstance(
                             url, ConstantCommon.KEY_WEBVIEW_URL
-                        ), false)
-                }else{
+                        ), false
+                    )
+                } else {
                     openFragment(
                         WebViewFragment.newInstance(
                             "https://vbeeon.com/san-pham", ConstantCommon.KEY_WEBVIEW_URL
-                        ), false)
+                        ), false
+                    )
                 }
             }
 
 
         }
-       // openFragment(ConvertDigitalDetailFragment(), false)
+        // openFragment(ConvertDigitalDetailFragment(), false)
 
     }
 }

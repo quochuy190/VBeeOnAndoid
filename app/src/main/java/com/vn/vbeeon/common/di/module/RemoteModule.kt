@@ -11,6 +11,7 @@ import com.vn.vbeeon.common.intercepter.ApiExceptionInterceptor
 import com.vn.vbeeon.common.intercepter.HttpHeaderDeviceInterceptor
 import com.vn.vbeeon.common.intercepter.HttpHeaderInterceptor
 import com.vn.vbeeon.common.intercepter.NullOnEmptyConverterFactory
+import com.vn.vbeeon.data.remote.api.LoginApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -34,6 +35,13 @@ import javax.inject.Singleton
  */
 @Module
 class RemoteModule {
+//
+//    @Provides
+//    @Singleton
+//    fun provideLoginApi(@Named("no-auth") retrofit: Retrofit): LoginApi {
+//        return retrofit.create(LoginApi::class.java)
+//    }
+
     @Provides
     @Singleton
     internal fun provideGson(): Gson {
@@ -58,7 +66,7 @@ class RemoteModule {
         httpClient.readTimeout(30, TimeUnit.SECONDS)
         httpClient.writeTimeout(20, TimeUnit.SECONDS)
         httpClient.addInterceptor(HttpHeaderDeviceInterceptor())
-        httpClient.addInterceptor(ApiExceptionInterceptor())
+       // httpClient.addInterceptor(ApiExceptionInterceptor())
         httpClient.connectTimeout(60, TimeUnit.SECONDS)
         if (BuildConfig.DEBUG) {
             val logging = HttpLoggingInterceptor()
@@ -71,7 +79,7 @@ class RemoteModule {
         return Retrofit.Builder()
             .baseUrl(application.resources.getString(R.string.api_base_url))
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .addConverterFactory(NullOnEmptyConverterFactory())
+          //  .addConverterFactory(NullOnEmptyConverterFactory())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(httpClient.build())
             .build()
