@@ -13,7 +13,7 @@ class ApiResult<T> {
     @SerializedName("code")
     var errorCode = 0
 
-    @SerializedName("message")
+    @SerializedName("msg")
     var errorMessage: String? = null
 
     @SerializedName("data")

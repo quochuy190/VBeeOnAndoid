@@ -37,6 +37,11 @@ abstract class ViewModelModule {
     abstract fun bindUserViewModel(userViewModel: UserViewModel): ViewModel
 
     @Binds
+    @IntoMap
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindLoginViewModel(userViewModel: LoginViewModel): ViewModel
+
+    @Binds
     @Singleton
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }

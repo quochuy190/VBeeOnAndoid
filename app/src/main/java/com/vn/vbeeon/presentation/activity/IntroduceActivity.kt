@@ -9,6 +9,7 @@ import com.vn.vbeeon.presentation.fragment.convertDigital.FragmentVBeeOnMission
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
 import com.vn.vbeeon.presentation.fragment.introduce.IntroduceFragment
 import com.vn.vbeeon.presentation.fragment.introduce.IntroduceInfoFragment
+import com.vn.vbeeon.presentation.fragment.introduce.LoginFrangment
 import com.vn.vbeeon.presentation.fragment.user.AddUserFragment
 import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
@@ -28,7 +29,7 @@ class IntroduceActivity : BaseActivity() {
         when (option){
             ConstantCommon.KEY_OPEN_FRAGMENT_EDIT_INFO -> openFragment(IntroduceInfoFragment(), false)
             else -> { // Note the block
-                openFragment(IntroduceFragment(), false)
+                openFragment(LoginFrangment(), false)
             }
         }
 

@@ -7,6 +7,7 @@ import com.vn.vbeeon.data.remote.api.LoginApi
 import com.vn.vbeeon.data.remote.entity.ApiException
 import com.vn.vbeeon.data.remote.entity.ErrorCode
 import com.vn.vbeeon.data.remote.entity.request.InitRequest
+import com.vn.vbeeon.data.remote.entity.request.RegisterRequest
 import com.vn.vbeeon.data.repository.UserRepository
 import com.vn.vbeeon.domain.model.User
 import io.reactivex.rxjava3.core.Single
@@ -45,16 +46,25 @@ class UserReposImpl @Inject constructor() : UserRepository {
         return true
     }
 
-//    override fun initApi(user: InitRequest): Single<User> {
-//        return loginApi.apiInit(user).map({ response ->
-//            if (response.errorCode == ErrorCode.SUCCESS) {
-//                return@map response.data
-//            } else {
-//                throw ApiException(response.errorCode, response.errorMessage)
-//            }
-//        })
-//    }
+    override fun initApi(user: InitRequest): Single<User> {
+        return loginApi.apiInit(user).map({ response ->
+            if (response.errorCode == ErrorCode.SUCCESS) {
+                return@map response.data
+            } else {
+                throw ApiException(response.errorCode, response.errorMessage)
+            }
+        })
+    }
 
+    override fun registerApi(user: RegisterRequest): Single<Boolean> {
+        return loginApi.register(user).map({ response ->
+            if (response.errorCode == ErrorCode.SUCCESS) {
+                return@map response.data
+            } else {
+                throw ApiException(response.errorCode, response.errorMessage)
+            }
+        })
+    }
 
 
 }

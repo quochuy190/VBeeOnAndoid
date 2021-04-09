@@ -4,18 +4,14 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.vn.vbeeon.R
 import com.vn.vbeeon.common.di.component.AppComponent
-import com.vn.vbeeon.common.extensions.openFragment
-import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.presentation.activity.IntroduceActivity
+import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
 import com.vn.vbeeon.presentation.viewmodel.MainViewModel
-import com.vn.vbeeon.utils.SharedPrefs
-import kotlinx.android.synthetic.main.fragment_introduce.*
-import vn.neo.smsvietlott.common.di.util.ConstantCommon
 
 
 @Suppress("DEPRECATION")
-class IntroduceFragment : BaseFragment() {
+class ForgotPassFrangment : BaseFragment() {
 
     lateinit var mainViewModel: MainViewModel
 
@@ -29,13 +25,10 @@ class IntroduceFragment : BaseFragment() {
     }
 
     override fun getLayoutRes(): Int {
-        return R.layout.activity_register
+        return R.layout.fragment_fogot_pass
     }
 
     override fun initView() {
-//        btnIntroduce.setOnSafeClickListener {
-//            (context as IntroduceActivity).openFragment(IntroduceInfoFragment(), true)
-//        }
     }
 
     override fun initViewModel() {

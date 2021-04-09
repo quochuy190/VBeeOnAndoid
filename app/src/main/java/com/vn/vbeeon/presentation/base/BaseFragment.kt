@@ -1,5 +1,6 @@
 package com.vn.vbeeon.presentation.base
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,7 +30,7 @@ abstract class BaseFragment : Fragment() {
     abstract fun initView()
     abstract fun initViewModel()
     abstract fun observable()
-
+    private var progressDialog: ProgressDialog? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -39,6 +40,7 @@ abstract class BaseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(getLayoutRes(), container, false)
         unBinder = ButterKnife.bind(this, view)
+        progressDialog = ProgressDialog(context)
         return view
     }
 
@@ -54,10 +56,20 @@ abstract class BaseFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private fun showProgressDialog(isShow: Boolean) {
-        //TODO
+    fun showProgressDialog(isShow: Boolean) {
+        if (isShow) {
+            showProgress()
+        } else {
+            dismissProgress()
+        }
+    }
+    fun showProgress() {
+        if (!progressDialog!!.isShowing()) progressDialog!!.show()
     }
 
+    fun dismissProgress() {
+        if (progressDialog!!.isShowing()) progressDialog!!.dismiss()
+    }
     fun showMessage(message: String) = context?.let { Toaster.show(it, message) }
 
     fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))

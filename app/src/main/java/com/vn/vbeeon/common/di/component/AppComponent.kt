@@ -11,8 +11,7 @@ import com.vn.vbeeon.presentation.fragment.bottombar.*
 import com.vn.vbeeon.presentation.fragment.convertDigital.*
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceDetailFragment
 import com.vn.vbeeon.presentation.fragment.deviceAddNew.DeviceListNewFragment
-import com.vn.vbeeon.presentation.fragment.introduce.IntroduceFragment
-import com.vn.vbeeon.presentation.fragment.introduce.IntroduceInfoFragment
+import com.vn.vbeeon.presentation.fragment.introduce.*
 import com.vn.vbeeon.presentation.fragment.sphygmomanometer.SphygHomeFragment
 import com.vn.vbeeon.presentation.fragment.user.AddUserFragment
 import com.vn.vbeeon.presentation.fragment.user.ListUserFragment
@@ -22,10 +21,11 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = [RemoteModule::class,
+    modules = [
         ViewModelModule::class,
         LocalModule::class,
-        RepositoryModule::class
+        RepositoryModule::class,
+        RemoteModule::class
     ]
 )
 interface AppComponent {
@@ -53,6 +53,9 @@ interface AppComponent {
     fun inject(fragment: ListUserFragment)
     fun inject(fragment: IntroduceFragment)
     fun inject(fragment: IntroduceInfoFragment)
+    fun inject(fragment: LoginFrangment)
+    fun inject(fragment: RegisterFrangment)
+    fun inject(fragment: ForgotPassFrangment)
 
 //    @Component.Builder
 //    interface Builder {

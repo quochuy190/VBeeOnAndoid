@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#010D29"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/llTop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#010D29"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_header_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/layout_border"
+            android:orientation="horizontal">
+            <TextView
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/title_register"
+                android:textColor="#3497FD"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:background="@drawable/shape_button_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical|right"
+                android:orientation="vertical">
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <ImageView
+
+        android:id="@+id/bgBuidling"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/landmark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:0.653"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/tvMessageForgotPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bgr_bg_dot_line"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:padding="@dimen/dimen_10dp"
+        android:text="@string/message_forgot_pass"
+        android:textColor="@color/txt_value_sphyg"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llTop"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <RelativeLayout
+        app:layout_constraintTop_toBottomOf="@+id/tvMessageForgotPass"
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="@dimen/dimen_15dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+      >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/ic_mail"
+            app:tint="@color/white" />
+
+        <EditText
+            android:id="@+id/edtEmailFGP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#5775B9"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/hint_email"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="45dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#6DB1B1B1"
+            android:textCursorDrawable="@color/white" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_clear" />
+
+
+        <CheckBox
+            android:textSize="@dimen/sp_15"
+            android:button="@drawable/custom_checkbox"
+            android:textColor="@color/white"
+            android:text="  Quên mật khẩu"
+            android:checked="true"
+            android:layout_below="@+id/edtEmailFGP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <CheckBox
+            android:layout_alignParentEnd="true"
+            android:textSize="@dimen/sp_15"
+            android:button="@drawable/custom_checkbox"
+            android:textColor="@color/white"
+            android:text="  Quên tên đăng nhập"
+            android:checked="false"
+            android:layout_below="@+id/edtEmailFGP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnBackLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bgr_button"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/btn_register_done"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintBottom_toTopOf="@+id/bgBuidling"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+</androidx.constraintlayout.widget.ConstraintLayout>

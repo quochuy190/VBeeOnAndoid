@@ -24,7 +24,7 @@ class DemoFragment : BaseFragment() {
     }
 
     override fun getLayoutRes(): Int {
-        return R.layout.fragment_demo
+        return R.layout.activity_register
     }
 
     override fun initView() {

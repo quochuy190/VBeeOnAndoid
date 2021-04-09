@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">VBeeOn</string>
-    <string name="api_base_url">http://123.30.180.58:3000</string>
+    <string name="api_base_url">http://61.28.229.47:9800</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -70,9 +70,17 @@
     <string name="hide_birthday">Ngày sinh</string>
     <string name="lable_sex">Giới tính</string>
     <string name="register_success">Đăng ký tài khoản thành công</string>
-    <string name="hint_user">- Tài khoản</string>
+    <string name="hint_user">Tên đăng nhập *</string>
+    <string name="hint_email">Email *</string>
+    <string name="hint_phone">Số điện thoại</string>
+    <string name="hint_pass">Mật khẩu</string>
+    <string name="txt_emtry_user_register">Chưa có tài khoản ? ĐĂNG KÝ</string>
+    <string name="txt_value_user_login">Đã có tài khoản ? ĐĂNG NHẬP</string>
     <string name="btn_login">Đăng nhập</string>
     <string name="title_register">ĐĂNG KÝ</string>
+    <string name="btn_register_done">Quay lại Đăng nhập</string>
+    <string name="message_register_done">Hệ thống vừa gửi đường dẫn kích hoạt tài khoản tới email của bạn. Nhấn vào link để xác nhận</string>
+    <string name="message_forgot_pass">Hệ thống sẽ tự động gửi tới email của bạn, Xin hãy mở email và làm theo hướng dẫn</string>
 
 
 </resources>

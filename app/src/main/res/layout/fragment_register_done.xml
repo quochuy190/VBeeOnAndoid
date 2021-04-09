@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#010D29"
+    android:layout_height="match_parent">
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#010D29"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_header_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/layout_border"
+            android:orientation="horizontal">
+            <TextView
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/title_register"
+                android:textColor="#3497FD"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:background="@drawable/shape_button_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical|right"
+                android:orientation="vertical">
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:background="@drawable/bgr_bg_dot_line"
+        android:gravity="center"
+        android:textSize="@dimen/sp_14"
+        android:padding="@dimen/dimen_10dp"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dimen_100dp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/message_register_done"
+        android:textColor="@color/txt_value_sphyg"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_marginBottom="@dimen/dimen_100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        android:textAllCaps="false"
+        android:textSize="@dimen/sp_18"
+        android:fontFamily="@font/roboto_bold"
+        android:id="@+id/btn_register"
+        android:textColor="#FFFFFF"
+
+        android:text="@string/btn_register_done"
+        android:background="@drawable/bgr_button"
+        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,12 @@ abstract class BaseViewModel : ViewModel() {
 
     val error = MutableLiveData<Throwable>()
 
+    private val loading = MutableLiveData<Boolean>()
+
+    open fun getLoading(): MutableLiveData<Boolean> {
+        return loading
+    }
+
     override fun onCleared() {
         super.onCleared()
         disposables.clear()

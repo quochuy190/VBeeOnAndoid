@@ -47,6 +47,7 @@
 
             </RelativeLayout>
         </LinearLayout>
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_alignParentBottom="true"
@@ -105,7 +106,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_lock"/>
+                    android:src="@drawable/ic_lock"
+                    app:tint="@color/white" />
                 <EditText
                     android:id="@+id/edtPass"
                     android:textSize="@dimen/sp_18"
@@ -131,8 +133,10 @@
                     android:layout_width="@dimen/dimen_40dp"
                     android:layout_height="@dimen/dimen_40dp"
                     app:tint="@color/white" />
+
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/txtForgotPass"
                 android:layout_marginTop="@dimen/dimen_20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -156,18 +160,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.8"
+                    app:layout_constraintWidth_percent="0.75"
                     android:textAllCaps="false"
                     android:textSize="@dimen/sp_18"
                     android:fontFamily="@font/roboto_bold"
                     android:id="@+id/btn_fragment_login"
                     android:textColor="#FFFFFF"
-                    android:padding="20dp"
+
                     android:text="@string/btn_login"
                     android:background="@drawable/bgr_button"
                     android:layout_centerHorizontal="true"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="@dimen/dimen_50dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <RelativeLayout
                 android:visibility="gone"
@@ -193,6 +197,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/txtRegister"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:layout_marginTop="@dimen/dimen_20dp"
@@ -203,7 +208,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chưa có tài khoản ? ĐĂNG KÝ"
+                    android:text="@string/txt_emtry_user_register"
                     android:textColor="#B1B1B1"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>

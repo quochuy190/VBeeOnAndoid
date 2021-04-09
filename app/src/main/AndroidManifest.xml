@@ -22,6 +22,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".presentation.activity.MainActivity"
@@ -31,7 +32,13 @@
         </activity>
         <activity android:name=".presentation.activity.FragmentActivity"/>
 
-        <activity android:name=".presentation.activity.IntroduceActivity"/>
+        <activity android:name=".presentation.activity.IntroduceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".presentation.activity.BPMTestActivity"/>
 
         <activity
@@ -43,11 +50,7 @@
             android:name=".presentation.activity.DeviceAddNewActivity"/>
 
         <activity android:name=".presentation.activity.SplashScreenAcitivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
     </application>
