@@ -17,7 +17,7 @@ import timber.log.Timber
 
 @Suppress("DEPRECATION")
 class RegisterFrangment : BaseFragment() {
-
+    // test commit
     lateinit var mainViewModel: LoginViewModel
 
     override fun inject(appComponent: AppComponent) {
