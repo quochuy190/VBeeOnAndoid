@@ -1,5 +1,6 @@
 package com.vn.vbeeon.common.intercepter
 
+import com.vn.vbeeon.data.remote.entity.ApiException
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -15,11 +16,12 @@ class ApiExceptionInterceptor : Interceptor {
         val request = chain.request()
         val response = chain.proceed(request)
         if (!response.isSuccessful) {
-            /* try {
-                throw new ApiException(response.code(), "error");
-            } catch (ApiException e) {
+             try {
+                //throw new ApiException(response.code(), "error");
+                 throw ApiException(response.code(), response.message())
+            } catch (e : Exception) {
                 e.printStackTrace();
-            }*/
+            }
         }
         return response
     }

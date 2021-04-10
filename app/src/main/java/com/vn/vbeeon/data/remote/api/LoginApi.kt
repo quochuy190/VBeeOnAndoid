@@ -1,12 +1,14 @@
 package com.vn.vbeeon.data.remote.api
 
 import com.vn.vbeeon.data.remote.entity.request.InitRequest
+import com.vn.vbeeon.data.remote.entity.request.LoginRequest
 import com.vn.vbeeon.data.remote.entity.request.RegisterRequest
 import com.vn.vbeeon.data.remote.entity.result.ApiResult
 import com.vn.vbeeon.domain.model.User
 import io.reactivex.Observable
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 /**
@@ -23,6 +25,9 @@ interface LoginApi {
 
     @POST("/api/customer/register")
     fun register(@Body userDto: RegisterRequest): Single<ApiResult<Boolean>>
+
+    @POST("/api/customer/login")
+    fun login(@Body userDto: LoginRequest): Single<ApiResult<Boolean>>
 
 
 }

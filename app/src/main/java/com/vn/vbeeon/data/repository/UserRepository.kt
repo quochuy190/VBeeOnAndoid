@@ -4,6 +4,7 @@ import com.google.android.gms.common.api.ApiException
 import com.vn.vbeeon.data.local.entity.DeviceEntity
 import com.vn.vbeeon.data.local.entity.UserEntity
 import com.vn.vbeeon.data.remote.entity.request.InitRequest
+import com.vn.vbeeon.data.remote.entity.request.LoginRequest
 import com.vn.vbeeon.data.remote.entity.request.RegisterRequest
 import com.vn.vbeeon.domain.model.User
 import io.reactivex.Observable
@@ -18,5 +19,5 @@ interface UserRepository {
   fun updateUser(device: UserEntity) : Boolean
   fun initApi(user: InitRequest): Single<User>
   fun registerApi(user: RegisterRequest): Single<Boolean>
-
+  fun loginApi(login: LoginRequest): Single<Boolean>
 }

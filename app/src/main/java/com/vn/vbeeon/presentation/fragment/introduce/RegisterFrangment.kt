@@ -34,7 +34,8 @@ class RegisterFrangment : BaseFragment() {
     }
 
     override fun initView() {
-        txtLogin.setOnSafeClickListener {
+
+        btn_register.setOnSafeClickListener {
             var request: RegisterRequest = RegisterRequest("",
                 edtUserName.text.toString(),
                 edtPass.text.toString(),
@@ -42,6 +43,9 @@ class RegisterFrangment : BaseFragment() {
                 edtPhone.text.toString(), "",
                 edtEmail.text.toString(), "")
             mainViewModel.register(request)
+        }
+        txtLogin.setOnSafeClickListener {
+
            // (context as IntroduceActivity).openFragment(LoginFrangment(), false)
         }
     }
@@ -59,7 +63,7 @@ class RegisterFrangment : BaseFragment() {
             (context as IntroduceActivity).openFragment(LoginFrangment(), false)
         })
         mainViewModel.error.observe(this, Observer {
-            Timber.e("success"+it.message)
+            Timber.e("error"+it.message)
         })
     }
 
