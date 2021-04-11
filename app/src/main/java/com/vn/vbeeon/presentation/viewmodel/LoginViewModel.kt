@@ -23,6 +23,9 @@ import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
 import retrofit2.HttpException
 import timber.log.Timber
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
@@ -51,25 +54,36 @@ class LoginViewModel @Inject constructor() : BaseViewModel() {
     private fun handleError(throwable: Throwable) {
         Timber.e("throwable.hashCode "+throwable.hashCode())
         Timber.e("throwable.cause "+throwable.cause)
-        when((throwable as HttpException).code()){
-
-            HttpsURLConnection.HTTP_UNAUTHORIZED ->{
-
+        when (throwable) {
+            is ConnectException, is UnknownHostException ->{
+                // ResponseResult.error<T>(BaseApplication.getStringResource(R.string.message_connect_exception))
             }
-            HttpsURLConnection.HTTP_BAD_METHOD ->{
-                val contentError = throwable.response()?.errorBody()!!.string()
-                val responseError = Gson().fromJson(contentError, ApiResult::class.java)
-                Timber.e("HTTP_UNAUTHORIZED"+responseError.errorMessage)
-                Timber.e("HTTP_BAD_METHOD")
+            is SocketTimeoutException ->{
+               // ResponseResult.error<T>(BaseApplication.getStringResource(R.string.message_socket_timeout_exception))
             }
-            HttpsURLConnection.HTTP_BAD_REQUEST ->{
-                Timber.e("HTTP_BAD_REQUEST")
-                val contentError = throwable.response()?.errorBody()!!.string()
-                val responseError = Gson().fromJson(contentError, ApiResult::class.java)
-                Timber.e("HTTP_UNAUTHORIZED"+responseError.errorMessage)
-                Timber.e("HTTP_BAD_METHOD")
+            is HttpException -> {
+                val code = throwable.code()
+                when(code){
+                    HttpsURLConnection.HTTP_UNAUTHORIZED ->{
+
+                    }
+                    HttpsURLConnection.HTTP_BAD_METHOD ->{
+                        val contentError = throwable.response()?.errorBody()!!.string()
+                        val responseError = Gson().fromJson(contentError, ApiResult::class.java)
+                        Timber.e("HTTP_UNAUTHORIZED"+responseError.errorMessage)
+                        Timber.e("HTTP_BAD_METHOD")
+                    }
+                    HttpsURLConnection.HTTP_BAD_REQUEST ->{
+                        Timber.e("HTTP_BAD_REQUEST")
+                        val contentError = throwable.response()?.errorBody()!!.string()
+                        val responseError = Gson().fromJson(contentError, ApiResult::class.java)
+                        Timber.e("HTTP_UNAUTHORIZED"+responseError.errorMessage)
+                        Timber.e("HTTP_BAD_METHOD")
+                    }
+                }
             }
         }
+
         getLoading().postValue(false)
         error.value = throwable
     }

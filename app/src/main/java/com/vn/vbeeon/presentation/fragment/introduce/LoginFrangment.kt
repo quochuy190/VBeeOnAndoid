@@ -8,6 +8,8 @@ import com.vn.vbeeon.common.di.component.AppComponent
 import com.vn.vbeeon.common.extensions.openFragment
 import com.vn.vbeeon.common.extensions.setOnSafeClickListener
 import com.vn.vbeeon.data.remote.entity.request.LoginRequest
+import com.vn.vbeeon.extensions.enccriptData
+import com.vn.vbeeon.extensions.encryptRSAToString
 import com.vn.vbeeon.presentation.activity.IntroduceActivity
 import com.vn.vbeeon.presentation.activity.MainActivity
 import com.vn.vbeeon.presentation.base.BaseFragment
@@ -38,7 +40,7 @@ class LoginFrangment : BaseFragment() {
     override fun initView() {
         btnLogin.setOnSafeClickListener {
             Timber.e("login start")
-            loginiewModel.login(LoginRequest(edtUserName.text.toString(), edtPassWord.text.toString()))
+            loginiewModel.login(LoginRequest(edtUserName.text.toString(), encryptRSAToString(edtPassWord.text.toString())!!))
         }
         txtForgotPass.setOnSafeClickListener {
             (context as IntroduceActivity).openFragment(ForgotPassFrangment(), true)
