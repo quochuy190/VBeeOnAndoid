@@ -6,10 +6,28 @@ import android.util.Base64
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.vn.vbeeon.VBeeOnApplication
-import java.security.KeyFactory
+import org.bee.rsa.RSAUtils
+import org.bouncycastle.asn1.pkcs.PrivateKeyInfo
+import org.bouncycastle.cert.X509CertificateHolder
+import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter
+import org.bouncycastle.jce.provider.BouncyCastleProvider
+import org.bouncycastle.openssl.PEMEncryptedKeyPair
+import org.bouncycastle.openssl.PEMKeyPair
+import org.bouncycastle.openssl.PEMParser
+import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
+import org.bouncycastle.openssl.jcajce.JcePEMDecryptorProviderBuilder
+import timber.log.Timber
+import java.io.IOException
+import java.io.Reader
+import java.security.InvalidKeyException
+import java.security.NoSuchAlgorithmException
+import java.security.PrivateKey
 import java.security.PublicKey
-import java.security.spec.X509EncodedKeySpec
+import java.security.cert.CertificateException
+import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
+import javax.crypto.IllegalBlockSizeException
+import javax.crypto.NoSuchPaddingException
 
 
 fun Context.hideKeyboardFrom(view: View) {
@@ -27,71 +45,75 @@ fun Activity.hideKeyboard() {
     }
     imm.hideSoftInputFromWindow(view.windowToken, 0)
 }
-var PUBLIC_KEY = "MIIDojCCAooCFHCX5+GUsBmdVs9wdarmNGtKXR8AMA0GCSqGSIb3DQEBCwUAMIGN\n" +
-        "MQswCQYDVQQGEwJWTjEOMAwGA1UECAwFSGFOb2kxDjAMBgNVBAcMBUhhTm9pMQ8w\n" +
-        "DQYDVQQKDAZCZWVJTkMxDzANBgNVBAsMBlZCZWVvbjEaMBgGA1UEAwwRYmFvLmJ1\n" +
-        "aUBiZWVpbmMudm4xIDAeBgkqhkiG9w0BCQEWEWJhby5idWlAYmVlaW5jLnZuMB4X\n" +
-        "DTIxMDQwOTA4NDEyMFoXDTI5MDYyNjA4NDEyMFowgYwxCzAJBgNVBAYTAlZOMQ4w\n" +
-        "DAYDVQQIDAVIYU5vaTEOMAwGA1UEBwwFSGFOb2kxDzANBgNVBAoMBkJlZUlOQzEP\n" +
-        "MA0GA1UECwwGVkJlZW9uMRMwEQYDVQQDDAptb2JpbGVfYXBwMSYwJAYJKoZIhvcN\n" +
-        "AQkBFhd2YmVlb24ubW9iaWxlQGJlZWluYy52bjCCASIwDQYJKoZIhvcNAQEBBQAD\n" +
-        "ggEPADCCAQoCggEBAMYFQ+UWtrua++MFswWocX/wZdPhhTjittv80LcuUAiEBWI2\n" +
-        "ymxuz59N37tTfqCNbJmsK0cQFgtyy89ykt7ePv/Z/G5htenTYscjEXAolZUXruiR\n" +
-        "1e78GMjcSS5PdByJvjTYOsDNKv+SkMxXKpfqY9fH/vfcH+w4brWSBswTesY7TjNY\n" +
-        "bmWkp0aDdpnrLr8r1Nck4yM4TpkVNxTelScpz3kTKBlwN9pZqZO8VFgGuPQ/c4Um\n" +
-        "wBRmUpPXSb3ue+OfA/HKW2vFL+3vwV/s6QGZpGlZdBz0wu61SRHFAq5+IjAVF3In\n" +
-        "lXOKbS/DWunXetFsSWFT3kYsKYZflQXoA9eNVikCAwEAATANBgkqhkiG9w0BAQsF\n" +
-        "AAOCAQEAG2FK3W592fKMzFckHqhmj+nEuhbPQ4r41W4UXSes/jfsLLy/p6fsd1oD\n" +
-        "aOya0HFspPIBDreWoEk9aqxribQnO1SwTUMcO7ZVLB40pAqKV2g0C6fxeKkgF7Bm\n" +
-        "MPSqHO58eLNyfb0I+pLgk0q0FC8p2syhs8QXUdZOMU1TOT+lB2RaW89q1guLhCTI\n" +
-        "AwvrZCP9ZExFjSsBbeq9LN4uGt0hTipAJpH1PealCi2h0i3yy81mjchQWDhuFqSH\n" +
-        "/eakOY7dIl9Qpzk7b9GDIK7ybIl1nYeLf05qePfWvg4tBLH95Np58ibL7yISeVkW\n" +
-        "abuXqKdLec/e1l+G3Qd+42GzgdOWhw=="
-fun enccriptData(txt: String): String? {
-    var encoded = ""
-    var encrypted: ByteArray? = null
-    try {
-        val publicBytes: ByteArray = Base64.decode(PUBLIC_KEY, Base64.DEFAULT)
-        val keySpec = X509EncodedKeySpec(publicBytes)
-        val keyFactory: KeyFactory = KeyFactory.getInstance("RSA")
-        val pubKey: PublicKey = keyFactory.generatePublic(keySpec)
-        val cipher: Cipher = Cipher.getInstance("RSA/ECB/PKCS1PADDING") //or try with "RSA"
-        cipher.init(Cipher.ENCRYPT_MODE, pubKey)
-        encrypted = cipher.doFinal(txt.toByteArray())
-        encoded = Base64.encodeToString(encrypted, Base64.DEFAULT)
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-    return encoded
-}
 
-fun encryptRSAToString(text: String): String? {
-    val file_name = "mobile_app.crt"
-    var publicKey = VBeeOnApplication.instance.assets.open(file_name).bufferedReader().use{
-        it.readText()
-    }
-    publicKey = publicKey.replace("-----BEGIN CERTIFICATE-----", "");
-    publicKey = publicKey.replace("-----END CERTIFICATE-----", "");
-    var cipherText: ByteArray? = null
+fun enccriptData(data: String): String {
     var strEncryInfoData = ""
+    var cipherText: ByteArray? = null
     try {
-        val keyFac = KeyFactory.getInstance("RSA")
-       // val keySpec: KeySpec = X509EncodedKeySpec(Base64.decode(PUBLIC_KEY.trim { it <= ' ' }.toByteArray(), Base64.DEFAULT))
-      //  val publicKey: Key = keyFac.generatePublic(keySpec)
-        // get an RSA cipher object and print the provider
-        val publicBytes = Base64.decode(publicKey, Base64.DEFAULT)
-        val keySpec = X509EncodedKeySpec(publicBytes)
-        val keyFactory = KeyFactory.getInstance("RSA")
-        val publicKey = keyFactory.generatePublic(keySpec)
-
-        val cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING")
+        val file_name = "vbeeon_admin.crt"
+        val cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding")
         // encrypt the plain text using the public key
-        cipher.init(Cipher.ENCRYPT_MODE, publicKey)
-        cipherText = cipher.doFinal(text.toByteArray())
-        //cipherText = cipher.doFinal(text.getBytes("UTF-8"));
+        cipher.init(Cipher.ENCRYPT_MODE, readPublickey(file_name))
+        cipherText = cipher.doFinal(data.toByteArray())
         strEncryInfoData = String(Base64.encode(cipherText, Base64.DEFAULT))
+        Timber.e("" + strEncryInfoData)
     } catch (e: java.lang.Exception) {
         e.printStackTrace()
+
     }
-    return strEncryInfoData.replace("(\\r|\\n)".toRegex(), "")
+    return strEncryInfoData
 }
+
+@Throws(CertificateException::class, IOException::class)
+private fun readPublickey(file_name: String): PublicKey? {
+    val publicPem = PEMParser(VBeeOnApplication.instance.assets.open(file_name).bufferedReader());
+    var publicKey: PublicKey? = null
+    val pubObject = publicPem.readObject()
+    if (pubObject is X509CertificateHolder) {
+        publicKey = JcaX509CertificateConverter()
+            .setProvider(BouncyCastleProvider())
+            .getCertificate(pubObject).publicKey
+    } else {
+        println("pubObject = $pubObject")
+    }
+    return publicKey
+}
+
+@Throws(
+    NoSuchAlgorithmException::class,
+    NoSuchPaddingException::class,
+    InvalidKeyException::class,
+    IllegalBlockSizeException::class,
+    BadPaddingException::class,
+    IOException::class
+)
+fun decryptWithPrivateKey( encryptedData: String): String? {
+    val file_private_key = "mobile_app.crt"
+    val privateKey = readPrivateKey(file_private_key)
+    val cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding")
+    cipher.init(2, privateKey)
+    val base64 = org.apache.commons.codec.binary.Base64()
+    val decoded = base64.decode(encryptedData.toByteArray())
+    //String(Base64.encode(cipherText, Base64.DEFAULT))
+    val decrypt = cipher.doFinal(decoded)
+    return String(decrypt)
+}
+@Throws(IOException::class)
+private fun readPrivateKey(file_name_private_key: String): PrivateKey? {
+    val keyPassword = "Bee@123!"
+    val keyReader = PEMParser(VBeeOnApplication.instance.assets.open(file_name_private_key).bufferedReader())
+    val converter = JcaPEMKeyConverter()
+    val decryptionProv = JcePEMDecryptorProviderBuilder().build(keyPassword.toCharArray())
+    val keyPair = keyReader.readObject()
+    val keyInfo: PrivateKeyInfo
+    keyInfo = if (keyPair is PEMEncryptedKeyPair) {
+        val decryptedKeyPair = keyPair.decryptKeyPair(decryptionProv)
+        decryptedKeyPair.privateKeyInfo
+    } else {
+        (keyPair as PEMKeyPair).privateKeyInfo
+    }
+    keyReader.close()
+    return converter.getPrivateKey(keyInfo)
+}
+
+

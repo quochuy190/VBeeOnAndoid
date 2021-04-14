@@ -78,15 +78,8 @@ class UserReposImpl @Inject constructor() : UserRepository {
 
     override fun loginApi(login: LoginRequest): Single<Boolean> {
         return loginApi.login(login).map({ response ->
-//            Timber.e(""+response.errorCode)
-//            if (response.errorCode == ErrorCode.SUCCESS) {
-//                Timber.e(""+response.errorCode)
-//                return@map response.data
-//            } else {
-//                Timber.e(""+response.errorCode)
-//                throw ApiException(response.errorCode, response.errorMessage)
-//            }
             return@map if (response.errorCode === ErrorCode.SUCCESS || response.errorCode === ErrorCode.ERROR_NOT_EXITS) {
+                Log.d("TAG", "loginApi: "+response)
                 true
             } else {
                 throw ApiException(response.errorCode, response.errorMessage)
