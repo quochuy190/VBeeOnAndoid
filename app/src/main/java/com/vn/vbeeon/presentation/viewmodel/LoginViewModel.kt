@@ -46,6 +46,7 @@ class LoginViewModel @Inject constructor() : BaseViewModel() {
     val response = MutableLiveData<Boolean>()
     init {
         Timber.e("init")
+        //test commit
     }
     override fun onCleared() {
         super.onCleared()
